@@ -1,7 +1,7 @@
 {
-  "name": "lista-tarefas",
+  "name": "seiton-inventory-control",
   "version": "1.0.0",
-  "description": "Projeto base para consumo de uma WebAPI",
+  "description": "Controle e análise de estoque e vendas",
   "author": "Lucas Bruno Ferreira",
   "private": true,
   "scripts": {

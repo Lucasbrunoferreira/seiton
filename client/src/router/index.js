@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Tarefas from '../pages/Produtos.vue'
+import Login from '../pages/Login.vue'
 
 import listaProdutos from '../components/lista-produtos/index.vue'
 import novoProduto from '../components/novo-produto/index.vue'
@@ -13,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'PageTarefas',
-      component: Tarefas
+      name: 'PageLogin',
+      component: Login
     },
     {
       path: '/produtos/lista',

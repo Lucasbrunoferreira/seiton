@@ -2,7 +2,7 @@
   <h1>Excluir Produto</h1>
 </template>
 
-<style scoped>
+<style >
 </style>
 
 <script src="./script"></script>

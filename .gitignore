@@ -5,6 +5,7 @@ server/App.BLL/bin
 server/App.BLL/obj
 server/App/bin
 server/App/obj
+.vscode
 
 # Visual Studio
 *.suo

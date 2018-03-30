@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style scoped>
+<style >
 </style>
 
 <script src="./script"></script>
