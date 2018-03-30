@@ -14,6 +14,10 @@ namespace BancoDeDados
         public DbSet<Sector> Sector { get; set; }
         public DbSet<Provider> Provider { get; set; }
         public DbSet<Contribuitor> Contribuitor { get; set; }
+        public DbSet<Sale> Sale { get; set; }
+        public DbSet<Client> Client { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductSale> ProductSale { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -21,7 +25,7 @@ namespace BancoDeDados
             "server=localhost; " +
             "port=3306;" +
             "userid=root;" +
-            "password=root; " +
+            "password=; " +
             "database=seitonserver;");
         }
     }
