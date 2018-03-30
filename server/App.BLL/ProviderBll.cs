@@ -63,16 +63,16 @@ namespace App.BLL
 
             var provider1 = new Provider();
 
-            if (providerModelView.Cnpj > 0 && providerModelView.Cidade.Trim().Length != 0 && 
+            if (providerModelView.Cnpj.Trim().Length != 0 && providerModelView.Cidade.Trim().Length != 0 && 
                 providerModelView.Responsavel.Trim().Length != 0
-                && providerModelView.Telefone > 0 && providerModelView.Email.Trim().Length != 0)
+                && providerModelView.Telefone.Trim().Length != 0 && providerModelView.Email.Trim().Length != 0)
             {
 
                 provider1.Cnpj = providerModelView.Cnpj;
                 provider1.Cidade = providerModelView.Cidade;
                 provider1.Responsavel = providerModelView.Responsavel;
                 provider1.Telefone = providerModelView.Telefone;
-                provider1.Email = providerModelView.Email;
+                provider1.Email = providerModelView.Email;       
 
             }
 

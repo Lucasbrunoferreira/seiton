@@ -24,14 +24,14 @@ namespace App.Controllers
 
                 var saleBll = new SaleBll();
                 saleBll.Inserir(saleModelView);
-                return NoContent();
+                return StatusCode(201); //Postado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -50,15 +50,14 @@ namespace App.Controllers
 
                 var saleBll = new SaleBll();
                 saleBll.Atualizar(id, saleModelView);
-
-                return NoContent();
+                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -75,15 +74,14 @@ namespace App.Controllers
 
                 var saleBll = new SaleBll();
                 var sale = saleBll.ObterPorId(id);
-
-                return Json(sale);
+                return Json(sale); //Recurso Encontrado mesmo que estege nulo;
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 
@@ -99,13 +97,14 @@ namespace App.Controllers
             {
                 var saleBll = new SaleBll();
                 saleBll.Delete(id);
+                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
 
-                return NoContent();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(404); //Recurso não Encontrado
+
             }
         }
 
@@ -118,13 +117,14 @@ namespace App.Controllers
             {
                 var saleBll = new SaleBll();
                 var listaDeSale = saleBll.ObterTodos();
-                return Json(listaDeSale);
+                return Json(listaDeSale); //Recurso Encontrado mesmo que estege nulo
+
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 

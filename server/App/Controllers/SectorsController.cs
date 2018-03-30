@@ -23,14 +23,14 @@ namespace Sectors.App.Controllers
 
                 var sectorBll = new SectorBll();
                 sectorBll.Inserir(sectorModelView);
-                return NoContent();
+                return StatusCode(201); //Postado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -46,15 +46,14 @@ namespace Sectors.App.Controllers
 
                 var sectorBll = new SectorBll();
                 sectorBll.Atualizar(id, sectorModelView);
-
-                return NoContent();
+                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -69,15 +68,14 @@ namespace Sectors.App.Controllers
 
                 var sectorBll = new SectorBll();
                 var sector = sectorBll.ObterPorId(id);
-
-                return Json(sector);
+                return Json(sector); //Recurso Encontrado mesmo que estege nulo;
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 
@@ -90,13 +88,14 @@ namespace Sectors.App.Controllers
             {
                 var sectorBll = new SectorBll();
                 sectorBll.Delete(id);
+                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
 
-                return NoContent();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(404); //Recurso não Encontrado
+
             }
         }
 
@@ -108,13 +107,14 @@ namespace Sectors.App.Controllers
             {
                 var sectorBll = new SectorBll();
                 var listaDeSectors = sectorBll.ObterTodos();
-                return Json(listaDeSectors);
+                return Json(listaDeSectors); //Recurso Encontrado mesmo que estege nulo
+
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 

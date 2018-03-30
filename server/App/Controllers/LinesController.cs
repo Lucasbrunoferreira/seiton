@@ -23,14 +23,14 @@ namespace Lines.App.Controllers
 
                 var lineBll = new LineBll();
                 lineBll.Inserir(lineModelView);
-                return NoContent();
+                return StatusCode(201); //Postado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -46,15 +46,14 @@ namespace Lines.App.Controllers
 
                 var lineBll = new LineBll();
                 lineBll.Atualizar(id, lineModelView);
-
-                return NoContent();
+                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -69,15 +68,14 @@ namespace Lines.App.Controllers
 
                 var lineBll = new LineBll();
                 var line = lineBll.ObterPorId(id);
-
-                return Json(line);
+                return Json(line); //Recurso Encontrado mesmo que estege nulo;
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 
@@ -90,13 +88,14 @@ namespace Lines.App.Controllers
             {
                 var lineBll = new LineBll();
                 lineBll.Delete(id);
+                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
 
-                return NoContent();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(404); //Recurso não Encontrado
+
             }
         }
 
@@ -108,13 +107,14 @@ namespace Lines.App.Controllers
             {
                 var lineBll = new LineBll();
                 var listaDeLines= lineBll.ObterTodos();
-                return Json(listaDeLines);
+                return Json(listaDeLines); //Recurso Encontrado mesmo que estege nulo
+
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 

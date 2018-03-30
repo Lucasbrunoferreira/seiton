@@ -25,7 +25,7 @@ namespace BancoDeDados
             "server=localhost; " +
             "port=3306;" +
             "userid=root;" +
-            "password=; " +
+            "password=root; " +
             "database=seitonserver;");
         }
     }

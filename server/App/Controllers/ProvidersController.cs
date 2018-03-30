@@ -23,14 +23,14 @@ namespace App.Controllers
 
                 var providerBll = new ProviderBll();
                 providerBll.Inserir(providerModelView);
-                return NoContent();
+                return StatusCode(201); //Postado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -46,15 +46,14 @@ namespace App.Controllers
 
                 var providerBll = new ProviderBll();
                 providerBll.Atualizar(id, providerModelView);
-
-                return NoContent();
+                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -69,15 +68,14 @@ namespace App.Controllers
 
                 var providerBll = new ProviderBll();
                 var provider = providerBll.ObterPorId(id);
-
-                return Json(provider);
+                return Json(provider); //Recurso Encontrado mesmo que estege nulo;
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 
@@ -90,13 +88,13 @@ namespace App.Controllers
             {
                 var providerBll = new ProviderBll();
                 providerBll.Delete(id);
-
-                return NoContent();
+                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(404); //Recurso não Encontrado
+
             }
         }
 
@@ -108,13 +106,14 @@ namespace App.Controllers
             {
                 var providerBll = new ProviderBll();
                 var listaDeProvider = providerBll.ObterTodos();
-                return Json(listaDeProvider);
+                return Json(listaDeProvider); //Recurso Encontrado mesmo que estege nulo
+
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 

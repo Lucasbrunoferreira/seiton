@@ -21,12 +21,13 @@ namespace Series.App.Controllers
 
                 var serieBll = new SerieBll();
                 serieBll.Inserir(serieModelView);
-                return NoContent();
+                return StatusCode(201); //Postado com sucesso
 
-            }catch(Exception ex){
+            }
+            catch(Exception ex){
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -42,15 +43,14 @@ namespace Series.App.Controllers
 
                 var serieBll = new SerieBll();
                 serieBll.Atualizar(id, serieModelView);
-
-                return NoContent();
+                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -65,15 +65,14 @@ namespace Series.App.Controllers
 
                 var serieBll = new SerieBll();
                 var serie = serieBll.ObterPorId(id);
-
-                return Json(serie);
+                return Json(serie); //Recurso Encontrado mesmo que estege nulo;
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 
@@ -86,13 +85,13 @@ namespace Series.App.Controllers
             {
                 var serieBll = new SerieBll();
                 serieBll.Delete(id);
+                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
 
-                return NoContent();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(404); //Recurso não Encontrado
             }
         }
 
@@ -104,13 +103,15 @@ namespace Series.App.Controllers
             {
                 var serieBll = new SerieBll();
                 var listaDeSeries = serieBll.ObterTodos();
-                return Json(listaDeSeries);
+                return Json(listaDeSeries); //Recurso Encontrado mesmo que estege nulo
+
+
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 

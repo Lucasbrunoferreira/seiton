@@ -23,14 +23,14 @@ namespace App.Controllers
 
                 var contribuitorBll = new ContribuitorBll();
                 contribuitorBll.Inserir(contribuitorModelView);
-                return NoContent();
+                return StatusCode(201); //Postado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -46,15 +46,14 @@ namespace App.Controllers
 
                 var contribuitorBll = new ContribuitorBll();
                 contribuitorBll.Atualizar(id, contribuitorModelView);
-
-                return NoContent();
+                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -69,15 +68,14 @@ namespace App.Controllers
 
                 var contribuitorBll = new ContribuitorBll();
                 var contribuitor = contribuitorBll.ObterPorId(id);
-
-                return Json(contribuitor);
+                return Json(contribuitor); //Recurso Encontrado mesmo que estege nulo;
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 
@@ -90,13 +88,14 @@ namespace App.Controllers
             {
                 var contribuitorBll = new ContribuitorBll();
                 contribuitorBll.Delete(id);
+                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
 
-                return NoContent();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(404); //Recurso não Encontrado
+
             }
         }
 
@@ -108,13 +107,14 @@ namespace App.Controllers
             {
                 var contribuitorBll = new ContribuitorBll();
                 var listaDeContribuitor = contribuitorBll.ObterTodos();
-                return Json(listaDeContribuitor);
+                return Json(listaDeContribuitor); //Recurso Encontrado mesmo que estege nulo
+
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 

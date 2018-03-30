@@ -23,14 +23,14 @@ namespace App.Controllers
 
                 var clientBll = new ClientBll();
                 clientBll.Inserir(clientModelView);
-                return NoContent();
+                return StatusCode(201); //Postado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -46,15 +46,14 @@ namespace App.Controllers
 
                 var clientBll = new ClientBll();
                 clientBll.Atualizar(id, clientModelView);
-
-                return NoContent();
+                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(422); //Exceções de negócio
 
             }
 
@@ -69,8 +68,7 @@ namespace App.Controllers
             {
 
                 var clientBll = new ClientBll();
-                var client = clientBll.ObterPorId(id);
-
+                var client = clientBll.ObterPorId(id); //Recurso Encontrado mesmo que estege nulo;
                 return Json(client);
 
             }
@@ -78,7 +76,7 @@ namespace App.Controllers
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
 
             }
 
@@ -92,13 +90,14 @@ namespace App.Controllers
             {
                 var clientBll = new ClientBll();
                 clientBll.Delete(id);
+                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
 
-                return NoContent();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(404); //Recurso não Encontrado
+
             }
         }
 
@@ -111,13 +110,15 @@ namespace App.Controllers
             {
                 var clientBll = new ClientBll();
                 var listaDeClient = clientBll.ObterTodos();
-                return Json(listaDeClient);
+                return Json(listaDeClient); //Recurso Encontrado mesmo que estege nulo
+
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(500);
+                return StatusCode(404); //Recurso não Encontrado
+
 
             }
 
