@@ -1,4 +1,5 @@
 ﻿using BancoDeDados.ObjetoDeAcesso;
+using DAL;
 using DAL.Models;
 using DAL.ModelView;
 using System;
@@ -66,13 +67,12 @@ namespace App.BLL
 
         public Client PreparaClient(ClientModelView clientModelView, Client client)
         {
-            
-
 
             var client1 = new Client();
+            var cpf = new ValidarCPF();
 
             if (clientModelView.NomeRazaoSocial.Trim().Length != 0 &&
-                clientModelView.CpfCnpj.Trim().Length != 0 &&
+                clientModelView.Cpf.Trim().Length != 0 &&
                 clientModelView.DataNascimento.Trim().Length != 0 &&
                 clientModelView.Cep.Trim().Length != 0 &&
                 clientModelView.Cidade.Trim().Length != 0 &&
@@ -83,14 +83,14 @@ namespace App.BLL
                 clientModelView.Estado.Trim().Length != 0 &&
                 clientModelView.Telefone.Trim().Length != 0 &&
                 clientModelView.Email.Trim().Length != 0 &&
-                clientModelView.DataCadastro.Trim().Length != 0 
-
+                clientModelView.DataCadastro.Trim().Length != 0 &&
+                cpf.IsCpf(clientModelView.Cpf) != false
 
                 )
             {
 
                 client1.NomeRazaoSocial = clientModelView.NomeRazaoSocial;
-                client1.CpfCnpj         = clientModelView.CpfCnpj;
+                client1.Cpf        = clientModelView.Cpf;
                 client1.DataNascimento  = clientModelView.DataNascimento;
                 client1.Cep             = clientModelView.Cep;
                 client1.Cidade          = clientModelView.Cidade;

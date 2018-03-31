@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BancoDeDados.ObjetoDeAcesso;
+using DAL;
 using DAL.Models;
 using DAL.ModelView;
 
@@ -62,10 +63,12 @@ namespace App.BLL
         {
 
             var provider1 = new Provider();
+            var cnpj = new ValidarCNPJ();
 
             if (providerModelView.Cnpj.Trim().Length != 0 && providerModelView.Cidade.Trim().Length != 0 && 
                 providerModelView.Responsavel.Trim().Length != 0
-                && providerModelView.Telefone.Trim().Length != 0 && providerModelView.Email.Trim().Length != 0)
+                && providerModelView.Telefone.Trim().Length != 0 && providerModelView.Email.Trim().Length != 0 &&
+                cnpj.IsCnpj(providerModelView.Cnpj) != false)
             {
 
                 provider1.Cnpj = providerModelView.Cnpj;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BancoDeDados.ObjetoDeAcesso;
+using DAL;
 using DAL.Models;
 using DAL.ModelView;
 
@@ -62,11 +63,12 @@ namespace App.BLL
         {
 
             var contribuitor1 = new Contribuitor();
+            var cpf = new ValidarCPF();
 
             if (contribuitorModelView.Nome.Trim().Length != 0 && contribuitorModelView.Usuario.Trim().Length != 0 &&
                 contribuitorModelView.Senha.Trim().Length != 0 && contribuitorModelView.DataNascimento.Trim().Length != 0 
                 && contribuitorModelView.Cpf.Trim().Length != 0 && contribuitorModelView.IdSector > 0  && 
-                contribuitorModelView.DataCadastro.Trim().Length != 0)
+                contribuitorModelView.DataCadastro.Trim().Length != 0 && cpf.IsCpf(contribuitorModelView.Cpf) != false)
             {
 
                 contribuitor1.Nome = contribuitorModelView.Nome;

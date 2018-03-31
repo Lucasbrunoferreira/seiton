@@ -12,11 +12,10 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdProductSale { get; set; }
-
-        [Required]
         public int IdSale { get; set; }
         [Required]
         public int IdProduct { get; set; }
+        [Required]
         public string SaleDate { get; set; }
 
     }
