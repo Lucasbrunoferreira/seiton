@@ -1,39 +1,46 @@
 <template>
-  <div class="page-container">
-    <div class="content-logo back-escuro">
-      <div class="logo">
-       <img src="../../static/img/logo.png" style="height: 140px; width: 380px">
+  <v-app>
+    <div class="page-container">
+      <div class="content-logo back-escuro">
+        <div class="logo">
+        <img src="../../static/img/logo.png" style="height: 140px; width: 380px">
+        </div>
       </div>
+      <div class="content-login">
+        <div class="titulo login-item primaria cursiva">
+          Bem Vindo!
+        </div>
+        <div class="msg-login login-item terciaria app-font">
+          Por favor faça login com sua conta:
+        </div>
+        <div class="form-login login-item">
+          <v-form ref="form">
+            <v-text-field app-font
+              label="Usuário"
+              v-model="user">
+            </v-text-field>
+            <v-text-field
+              type="password"
+              label="Senha"
+              v-model="pass">
+            </v-text-field>
+            <v-alert outline color="success" icon="check_circle" v-if="sucessSubmit" :value="true">
+              Sucesso! Aguarde...
+            </v-alert>
+            <v-alert v-if="erroSubmit" outline color="error" icon="warning" :value="true">
+              Por favor, preencha todos os campos!
+            </v-alert>
+            <div class="submit">
+              <v-btn large @click="submit" style="background-color: #6BD8D1">
+                <b>Entrar</b>
+              </v-btn>
+            </div>
+          </v-form>
+        </div>
+      </div>
+      <div class="borda-direita back-escuro"></div>
     </div>
-    <div class="content-login">
-      <div class="titulo login-item primaria cursiva">
-        Bem Vindo!
-      </div>
-      <div class="msg-login login-item terciaria app-font">
-        Por favor faça login com sua conta:
-      </div>
-      <div class="form-login login-item">
-        <v-form v-model="valid" ref="form" lazy-validation >
-          <v-text-field app-font
-            label="Usuário"
-            :rules="userRules"
-            v-model="user">
-          </v-text-field>
-          <v-text-field
-            label="Senha"
-            v-model="pass"
-            :rules="pasRules">
-          </v-text-field>
-          <div class="submit">
-            <v-btn large @click="submit" :disabled="!valid" style="background-color: #6BD8D1">
-              Entrar
-            </v-btn>
-          </div>
-        </v-form>
-      </div>
-    </div>
-    <div class="borda-direita back-escuro"></div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -41,21 +48,25 @@ export default {
   name: 'PageLogin',
   data () {
     return {
-      valid: true,
       user: '',
       pass: '',
-      userRules: [
-        v => !!v || 'Usuário Obrigatório!'
-      ],
-      pasRules: [
-        v => !!v || 'Senha Obrigatória!'
-      ]
+      erroSubmit: false,
+      sucessSubmit: false
     }
   },
   methods: {
     submit () {
-      if (this.$refs.form.validate()) {
-        alert("Usuario:  " + this.user + "     Senha:  " + this.pass)
+      if (this.user && this.pass) {
+        this.sucessSubmit = true
+        setTimeout(() => {
+          alert('Usuario:  ' + this.user + '   Senha:  ' + this.pass)
+          this.sucessSubmit = false
+        }, 2500)
+      } else {
+        this.erroSubmit = true
+        setTimeout(() => {
+          this.erroSubmit = false
+        }, 4000)
       }
     }
   }
@@ -90,7 +101,7 @@ html, body, #app{
   justify-content: center;
 }
 .titulo {
-  padding-top: 130px;
+  padding-top: 110px;
   font-size: 40px;
 }
 .msg-login {
@@ -103,7 +114,6 @@ html, body, #app{
   align-items: center;
   justify-content: center;
   font-family: "Source Sans Pro" !important;
-  color: #fff;
 }
 label {
   font-family: "Source Sans Pro" !important
