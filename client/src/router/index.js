@@ -2,10 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Login from '../pages/Login.vue'
-
-import listaProdutos from '../components/lista-produtos/index.vue'
-import novoProduto from '../components/novo-produto/index.vue'
-import excluirProduto from '../components/excluir-produto/index.vue'
+import Products from '../pages/Products.vue'
 
 Vue.use(Router)
 
@@ -17,19 +14,9 @@ export default new Router({
       component: Login
     },
     {
-      path: '/produtos/lista',
-      name: 'lista-produtos',
-      component: listaProdutos
-    },
-    {
-      path: '/produtos/novo',
-      name: 'novo-produto',
-      component: novoProduto
-    },
-    {
-      path: '/produtos/excluir',
-      name: 'excluir-produto',
-      component: excluirProduto
+      path: '/produtos',
+      name: 'PageProducts',
+      component: Products
     }
   ]
 })

@@ -30,6 +30,9 @@
             <v-alert v-if="erroSubmit" outline color="error" icon="warning" :value="true">
               Por favor, preencha todos os campos!
             </v-alert>
+            <v-alert v-if="invalidSubmit" outline color="error" icon="warning" :value="true">
+              Usuário ou Senha inválido(s)!
+            </v-alert>
             <div class="submit">
               <v-btn large @click="submit" style="background-color: #6BD8D1">
                 <b>Entrar</b>
@@ -51,22 +54,29 @@ export default {
       user: '',
       pass: '',
       erroSubmit: false,
-      sucessSubmit: false
+      sucessSubmit: false,
+      invalidSubmit: false
     }
   },
   methods: {
     submit () {
       if (this.user && this.pass) {
-        this.sucessSubmit = true
-        setTimeout(() => {
-          alert('Usuario:  ' + this.user + '   Senha:  ' + this.pass)
-          this.sucessSubmit = false
-        }, 2500)
+        if (this.user === 'admin' && this.pass === 'admin') {
+          this.sucessSubmit = true
+          setTimeout(() => {
+            this.$router.push('produtos')
+          }, 3500)
+        } else {
+          this.invalidSubmit = true
+          setTimeout(() => {
+            this.invalidSubmit = false
+          }, 3500)
+        }
       } else {
         this.erroSubmit = true
         setTimeout(() => {
           this.erroSubmit = false
-        }, 4000)
+        }, 3500)
       }
     }
   }
