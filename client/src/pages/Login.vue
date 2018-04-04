@@ -3,7 +3,7 @@
     <div class="page-container">
       <div class="content-logo back-escuro">
         <div class="logo">
-        <img src="../../static/img/logo.png" style="height: 140px; width: 380px">
+        <img src="static/img/logo.png" style="height: 140px; width: 380px">
         </div>
       </div>
       <div class="content-login">
