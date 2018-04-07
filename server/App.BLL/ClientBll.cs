@@ -83,14 +83,14 @@ namespace App.BLL
                 clientModelView.Estado.Trim().Length != 0 &&
                 clientModelView.Telefone.Trim().Length != 0 &&
                 clientModelView.Email.Trim().Length != 0 &&
-                clientModelView.DataCadastro.Trim().Length != 0 &&
-                cpf.IsCpf(clientModelView.Cpf) != false
+                clientModelView.DataCadastro.Trim().Length != 0 
+                && cpf.IsCpf(clientModelView.Cpf) != false
 
                 )
             {
 
                 client1.NomeRazaoSocial = clientModelView.NomeRazaoSocial;
-                client1.Cpf        = clientModelView.Cpf;
+                client1.Cpf             = clientModelView.Cpf;
                 client1.DataNascimento  = clientModelView.DataNascimento;
                 client1.Cep             = clientModelView.Cep;
                 client1.Cidade          = clientModelView.Cidade;

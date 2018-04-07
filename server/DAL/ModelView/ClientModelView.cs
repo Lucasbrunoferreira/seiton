@@ -11,10 +11,8 @@ namespace DAL.ModelView
         [Required]
         public string NomeRazaoSocial { get; set; }
         [Required]
-        [MaxLength (18), MinLength (5)]
         public string Cpf { get; set; }
         [Required]
-        [MaxLength (10), MinLength (4)]
         public string DataNascimento { get; set; }
         public string Cep { get; set; }
         public string Cidade { get; set; }
