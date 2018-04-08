@@ -1,15 +1,10 @@
 export default {
-  name: 'navigationDrawer',
   data () {
     return {
       drawer: true,
       items: [{
-        title: 'Home',
-        icon: 'dashboard'
-      },
-      {
-        title: 'About',
-        icon: 'question_answer'
+        title: 'Produtos',
+        icon: '../../../static/icons/products.svg'
       }],
       mini: true,
       right: null

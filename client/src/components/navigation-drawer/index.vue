@@ -3,38 +3,34 @@
     <v-navigation-drawer stateless hide-overlay :mini-variant.sync="mini" v-model="drawer">
       <v-toolbar flat class="transparent">
         <v-list class="pa-0">
-          <v-list-tile avatar>
+          <v-list-tile >
             <v-list-tile-avatar>
-              <img src="https://randomuser.me/api/portraits/men/85.jpg" >
+              <img src="/static/img/top_logo.png" >
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>Lucas</v-list-tile-title>
             </v-list-tile-content>
-            <v-list-tile-action>
-              <v-btn icon @click.native.stop="mini = !mini">
-                <v-icon>chevron_left</v-icon>
-              </v-btn>
-            </v-list-tile-action>
           </v-list-tile>
         </v-list>
       </v-toolbar>
-      <v-list class="pt-0" dense>
+      <v-list class="pt-2" dense>
         <v-divider></v-divider>
         <v-list-tile v-for="item in items" :key="item.title" @click="ola()">
           <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <img class="nav-icon" :src="item.icon">
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile-action class="pt-4">
+          <v-btn flat  @click.native.stop="mini = !mini">
+            <v-icon >code</v-icon>
+          </v-btn>
+        </v-list-tile-action>
       </v-list>
     </v-navigation-drawer>
   </v-app>
 </template>
 
-<script src="./navigation.js"></script>
-
-<style>
-
-</style>
+<script src="./scripts.js"></script>

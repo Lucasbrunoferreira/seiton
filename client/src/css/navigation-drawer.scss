@@ -1,0 +1,20 @@
+@import 'app';
+
+.avatar, .avatar .icon, .avatar img { border-radius: 0%; }
+
+.theme--light .navigation-drawer { background-color: $color-primary; }
+
+aside { 
+    &.navigation-drawer.navigation-drawer--open { width: 180px !important; }
+    &.navigation-drawer.navigation-drawer--mini-variant { width: 80px !important; }
+    a {
+        &:hover { background-color: $color-secundary !important; color: #fff;}
+        .selectedItem { width: 20px; height: 20px;; border: 1px red; }
+    }
+    .selectedItem { width: 20px; height: 20px;; border: 1px red; }
+    img.nav-icon { height: 24px; }
+    .list__tile__title { color: #fff;}
+    .list__tile__action { display: flex; justify-content: center; 
+        .btn__content { background-color: $color-primary; color: #fff; width:180px !important; }
+    }
+}
