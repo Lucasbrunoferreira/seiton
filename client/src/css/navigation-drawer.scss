@@ -8,8 +8,7 @@ aside {
     &.navigation-drawer.navigation-drawer--open { width: 180px !important; }
     &.navigation-drawer.navigation-drawer--mini-variant { width: 80px !important; }
     a {
-        &:hover { background-color: $color-secundary !important; color: #fff;}
-        .selectedItem { width: 20px; height: 20px;; border: 1px red; }
+        &:hover { background-color: rgba(216, 216, 216, 0.158) !important; color: #fff;}
     }
     .selectedItem { width: 20px; height: 20px;; border: 1px red; }
     img.nav-icon { height: 24px; }
