@@ -5,6 +5,7 @@ namespace DAL.ModelView
     public class ProviderModelView
     {
 
+        //public Boolean StatusProvider { get; set; }
         public string Cnpj { get; set; }
         [Required]
         public string Cidade { get; set; }      

@@ -67,34 +67,6 @@ namespace App.BLL
 
             var product1 = new Product();
 
-            /*if (
-
-                productModelView.CodigoBarra > 0 &&
-                productModelView.Nome.Trim().Length != 0 && productModelView.Estoque > 0 &&
-                productModelView.Lote.Trim().Length != 0 && productModelView.DataValidade.Trim().Length != 0 &&
-                productModelView.DataCadastro.Trim().Length != 0 && productModelView.DataEntrada.Trim().Length != 0 &&
-                productModelView.PrecoCompra > 0 && productModelView.PrecoVenda > 0 &&
-                productModelView.Desconto > 0 && productModelView.Icms > 0 &&
-                productModelView.IdLine > 0 && productModelView.IdProvider > 0 )
-            {
-
-
-                product1.CodigoBarra        = productModelView.CodigoBarra;
-                product1.Nome               = productModelView.Nome;
-                product1.Estoque            = productModelView.Estoque;
-                product1.Lote               = productModelView.Lote;
-                product1.DataValidade       = productModelView.DataValidade;
-                product1.DataCadastro       = productModelView.DataCadastro;
-                product1.DataEntrada        = productModelView.DataEntrada;
-                product1.PrecoCompra        = productModelView.PrecoCompra;
-                product1.PrecoVenda         = productModelView.PrecoVenda;
-                product1.Desconto           = productModelView.Desconto;
-                product1.Icms               = productModelView.Icms;
-                product1.IdLine             = productModelView.IdLine;
-                product1.IdProvider         = productModelView.IdProvider;
-   
-
-            }*/
 
             if(productModelView.CodigoBarra <= 0)
             {

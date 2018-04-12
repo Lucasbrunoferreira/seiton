@@ -11,7 +11,7 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdClient { get; set; }
-
+        //public Boolean StatusClient { get; set; }
         [Required]
         public string NomeRazaoSocial { get; set; }
         [Required]

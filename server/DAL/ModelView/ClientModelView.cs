@@ -8,6 +8,7 @@ namespace DAL.ModelView
     public class ClientModelView
     {
 
+        //public Boolean StatusClient { get; set; }
         [Required]
         public string NomeRazaoSocial { get; set; }
         [Required]
