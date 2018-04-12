@@ -8,10 +8,9 @@ namespace DAL.ModelView
     public class ProductModelView
     {
 
+        public Boolean StatusProduct { get; set; }
         [Required]
-        public int CodigoBarra { get; set; }
-        [Required]
-        public int ProviderId { get; set; }
+        public long CodigoBarra { get; set; }
         [Required]
         public string Nome { get; set; }
         [Required]

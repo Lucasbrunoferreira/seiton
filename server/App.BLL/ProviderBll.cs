@@ -65,18 +65,37 @@ namespace App.BLL
             var provider1 = new Provider();
             var cnpj = new ValidarCNPJ();
 
-            if (providerModelView.Cnpj.Trim().Length != 0 && providerModelView.Cidade.Trim().Length != 0 && 
-                providerModelView.Responsavel.Trim().Length != 0
-                && providerModelView.Telefone.Trim().Length != 0 && providerModelView.Email.Trim().Length != 0 &&
-                cnpj.IsCnpj(providerModelView.Cnpj) != false)
+            if(providerModelView.Cnpj.Trim().Length == 0)
             {
-
+                throw new Exception("Informe um CNPJ");
+            }
+            else if(providerModelView.Cidade.Trim().Length == 0)
+            {
+                throw new Exception("Informe uma Cidade");
+            }
+            else if(providerModelView.Responsavel.Trim().Length == 0)
+            {
+                throw new Exception("Informe um Responsavel");
+            }
+            else if(providerModelView.Telefone.Trim().Length == 0)
+            {
+                throw new Exception("Informe um TELEFONE");
+            }
+            else if(providerModelView.Email.Trim().Length == 0)
+            {
+                throw new Exception("Informe um EMAIL");
+            }
+            else if(cnpj.IsCnpj(providerModelView.Cnpj) == false)
+            {
+                throw new Exception("CNPJ inválido");
+            }
+            else
+            {
                 provider1.Cnpj = providerModelView.Cnpj;
                 provider1.Cidade = providerModelView.Cidade;
                 provider1.Responsavel = providerModelView.Responsavel;
                 provider1.Telefone = providerModelView.Telefone;
-                provider1.Email = providerModelView.Email;       
-
+                provider1.Email = providerModelView.Email;
             }
 
             return provider1;

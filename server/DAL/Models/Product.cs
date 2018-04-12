@@ -12,11 +12,9 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdProduct{ get; set; }
-
+        public Boolean StatusProduct { get; set; }
         [Required]
-        public int CodigoBarra { get; set; }
-        [Required]
-        public int ProviderId { get; set; }
+        public long CodigoBarra { get; set; }
         [Required]
         public string Nome { get; set; }
         [Required]

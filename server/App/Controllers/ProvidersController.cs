@@ -69,7 +69,7 @@ namespace App.Controllers
                 var providerBll = new ProviderBll();
                 var provider = providerBll.ObterPorId(id);
                 return Json(provider); //Recurso Encontrado mesmo que estege nulo;
-
+  
             }
             catch (Exception ex)
             {
@@ -89,6 +89,7 @@ namespace App.Controllers
                 var providerBll = new ProviderBll();
                 providerBll.Delete(id);
                 return StatusCode(204); //Indica que o recurso foi excluído com sucesso
+
             }
             catch (Exception ex)
             {
@@ -107,7 +108,7 @@ namespace App.Controllers
                 var providerBll = new ProviderBll();
                 var listaDeProvider = providerBll.ObterTodos();
                 return Json(listaDeProvider); //Recurso Encontrado mesmo que estege nulo
-
+                
             }
             catch (Exception ex)
             {

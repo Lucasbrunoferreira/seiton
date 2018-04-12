@@ -65,12 +65,40 @@ namespace App.BLL
             var contribuitor1 = new Contribuitor();
             var cpf = new ValidarCPF();
 
-            if (contribuitorModelView.Nome.Trim().Length != 0 && contribuitorModelView.Usuario.Trim().Length != 0 &&
-                contribuitorModelView.Senha.Trim().Length != 0 && contribuitorModelView.DataNascimento.Trim().Length != 0 
-                && contribuitorModelView.Cpf.Trim().Length != 0 && contribuitorModelView.IdSector > 0  && 
-                contribuitorModelView.DataCadastro.Trim().Length != 0 && cpf.IsCpf(contribuitorModelView.Cpf) != false)
+            if (contribuitorModelView.Nome.Trim().Length == 0)
             {
-
+                throw new Exception("Informe um NOME");
+            }
+            else if (contribuitorModelView.Usuario.Trim().Length == 0)
+            {
+                throw new Exception("Informe um USUÁRIO");
+            }
+            else if (contribuitorModelView.Senha.Trim().Length == 0)
+            {
+                throw new Exception("Informe uma SENHA");
+            }
+            else if (contribuitorModelView.DataNascimento.Trim().Length == 0)
+            {
+                throw new Exception("Informe uma DATA DE NASCIMENTO");
+            }
+            else if (contribuitorModelView.Cpf.Trim().Length == 0)
+            {
+                throw new Exception("Informe um CPF");
+            }
+            else if (contribuitorModelView.IdSector == 0)
+            {
+                throw new Exception("Iforme um SETOR");
+            }
+            else if (contribuitorModelView.DataCadastro.Trim().Length == 0)
+            {
+                throw new Exception("Iforme uma DATA DE CADASTRO");
+            }
+            else if (cpf.IsCpf(contribuitorModelView.Cpf) == false)
+            {
+                throw new Exception("CPF inválido");
+            }
+            else
+            {
                 contribuitor1.Nome = contribuitorModelView.Nome;
                 contribuitor1.Usuario = contribuitorModelView.Usuario;
                 contribuitor1.Senha = contribuitorModelView.Senha;
@@ -78,7 +106,6 @@ namespace App.BLL
                 contribuitor1.DataNascimento = contribuitorModelView.DataNascimento;
                 contribuitor1.DataCadastro = contribuitorModelView.DataCadastro;
                 contribuitor1.IdSector = contribuitorModelView.IdSector;
-
             }
 
             return contribuitor1;
