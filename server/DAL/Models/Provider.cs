@@ -10,6 +10,7 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdProvider { get; set; }
+        //public Boolean StatusProvider { get; set; }
         public string Cnpj { get; set; }
         [Required]
         public string Cidade { get; set; }

@@ -8,6 +8,7 @@ namespace DAL.ModelView
     public class ContribuitorModelView
     {
 
+        //public Boolean StatusContribuitor { get; set; }
         public string Nome { get; set; }
         [Required]
         public string Usuario { get; set; }

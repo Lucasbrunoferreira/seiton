@@ -12,6 +12,7 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdContribuitor { get; set; }
+        //public Boolean StatusContribuitor { get; set; }
         public string Nome { get; set; }
         [Required]
         public string Usuario { get; set; }
