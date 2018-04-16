@@ -1,6 +1,21 @@
-.products-page { display: flex; height: 100%; background: $color-background;
-    .nav-content { display: flex; }
-    .header-content { display: inline; border: 1px solid green; ;}
-    .products-content { border: 1px solid purple }
-    
- }
+.products-wrapper { $mrgItems: 70px;
+  h1 { margin: 30px $mrgItems; color: $color-primary; }
+
+  ul.fast-view { display: flex; justify-content: space-between; margin: $mrgItems;
+      li { display:flex; background: #fff; width: 310px; height: 50px; align-items: center; padding-left: 30px; font-size: 18px;
+        .qtdFast { color: rgb(197, 0, 0); margin: 0px 10px; font-size: 25px; }
+        img { width: 30px; }
+      }
+  }
+
+  div.content { display: flex; justify-content: space-between; margin: $mrgItems;
+      .products-table { width: 800px; height: 350px;}
+      .analityc-table { height: 300px; width: 300px; border: 1px black solid; }
+      .btns-produtcts { margin-top: 35px; display: flex; justify-content: space-between; }
+      table.datatable.table { background: #fff; }
+
+      button.pagination__item.pagination__item--active.primary { background: $color-primary !important; color: #fff; }
+      .primary--text input, .primary--text textarea { color: $color-primary !important; }
+
+  }
+}

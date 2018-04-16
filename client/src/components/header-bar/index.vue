@@ -1,5 +1,7 @@
 <template>
-    <div class="content"></div>
+  <div>
+    Hello
+  </div>
 </template>
 
 <script src="./scripts.js"></script>

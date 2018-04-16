@@ -10,8 +10,8 @@ aside {
     a {
         &:hover { background-color: rgba(216, 216, 216, 0.158) !important; color: #fff;}
     }
-    .selectedItem { width: 20px; height: 20px;; border: 1px red; }
-    img.nav-icon { height: 24px; }
+    .selectedItem { width: 20px; height: 20px; }
+    img.nav-icon { height: 28px; }
     .list__tile__title { color: #fff;}
     .list__tile__action { display: flex; justify-content: center; 
         .btn__content { background-color: $color-primary; color: #fff; width:180px !important; }

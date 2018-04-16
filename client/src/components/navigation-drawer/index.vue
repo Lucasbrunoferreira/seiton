@@ -15,7 +15,7 @@
       </v-toolbar>
       <v-list class="pt-2" dense>
         <v-divider></v-divider>
-        <v-list-tile v-for="item in items" :key="item.title" @click="ola()" class="pt-3">
+        <v-list-tile v-for="item in items" :key="item.title" class="pt-3" :to="item.route">
           <v-list-tile-action>
             <img class="nav-icon" :src="item.icon">
           </v-list-tile-action>
@@ -25,7 +25,7 @@
         </v-list-tile>
         <v-list-tile-action class="pt-4">
           <v-btn flat  @click.native.stop="mini = !mini">
-            <v-icon >code</v-icon>
+            <v-icon>code</v-icon>
           </v-btn>
         </v-list-tile-action>
       </v-list>

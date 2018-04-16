@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { Login, Products, Clients } from '../screens'
+import { Login, Home } from '../screens'
+import { products, clients } from '../components'
 
 Vue.use(Router)
 
@@ -13,14 +14,21 @@ export default new Router({
       component: Login
     },
     {
-      path: '/produtos',
-      name: 'PageProdutos',
-      component: Products
-    },
-    {
-      path: '/clientes',
-      name: 'Clientes',
-      component: Clients
+      path: '/',
+      name: 'HomePage',
+      component: Home,
+      children: [
+        {
+          path: '/produtos',
+          name: 'Produtos',
+          component: products
+        },
+        {
+          path: '/clientes',
+          name: 'Clientes',
+          component: clients
+        }
+      ]
     }
   ]
 })

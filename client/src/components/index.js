@@ -1,5 +1,6 @@
 import navigationDrawer from './navigation-drawer'
 import headerBar from './header-bar'
-import listProducts from './list-products'
+import products from './products'
+import clients from './clients'
 
-export { navigationDrawer, headerBar, listProducts }
+export { navigationDrawer, headerBar, products, clients }
