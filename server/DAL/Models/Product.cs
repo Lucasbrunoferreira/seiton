@@ -13,18 +13,16 @@ namespace DAL.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdProduct{ get; set; }
         public Boolean StatusProduct { get; set; }
-        [Required]
         public long CodigoBarra { get; set; }
         [Required]
         public string Nome { get; set; }
-        [Required]
         public int Estoque { get; set; }
-        [Required]
         public string Lote { get; set; }
+        [Required]
         public string DataValidade { get; set; }
         public string DataCadastro { get; set; }
-        public string DataEntrada { get; set; }
         [Required]
+        public string DataEntrada { get; set; }
         public double PrecoCompra { get; set; }
         [Required]
         public double PrecoVenda { get; set; }
@@ -34,7 +32,6 @@ namespace DAL.Models
         public int IdLine { get; set; }
         [Required]
         public int IdProvider { get; set; }
-
 
     }
 }

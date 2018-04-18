@@ -67,27 +67,27 @@ namespace App.BLL
 
             if(providerModelView.Cnpj.Trim().Length == 0)
             {
-                throw new Exception("Informe um CNPJ");
+                throw new Exception("Informe o CNPJ.");
             }
             else if(providerModelView.Cidade.Trim().Length == 0)
             {
-                throw new Exception("Informe uma Cidade");
+                throw new Exception("Informe a Cidade.");
             }
             else if(providerModelView.Responsavel.Trim().Length == 0)
             {
-                throw new Exception("Informe um Responsavel");
+                throw new Exception("Informe o Responsavel.");
             }
             else if(providerModelView.Telefone.Trim().Length == 0)
             {
-                throw new Exception("Informe um TELEFONE");
+                throw new Exception("Informe o TELEFONE.");
             }
             else if(providerModelView.Email.Trim().Length == 0)
             {
-                throw new Exception("Informe um EMAIL");
+                throw new Exception("Informe o EMAIL.");
             }
             else if(cnpj.IsCnpj(providerModelView.Cnpj) == false)
             {
-                throw new Exception("CNPJ inválido");
+                throw new Exception("CNPJ INVÁLIDO.");
             }
             else
             {

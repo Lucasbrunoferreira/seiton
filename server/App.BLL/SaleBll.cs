@@ -68,16 +68,28 @@ namespace App.BLL
 
             var sale1 = new Sale();
 
-            if (saleModelView.TipoVenda.Trim().Length != 0 && saleModelView.DataVenda.Trim().Length != 0 &&
-                saleModelView.IdClient > 0 && saleModelView.IdContribuitor > 0)
+            if (saleModelView.TipoVenda.Trim().Length == 0)
             {
-
+                throw new Exception("Informe o TIPO DE VENDA.");
+            }
+            else if(saleModelView.DataVenda.Trim().Length == 0)
+            {
+                throw new Exception("Informe a DATA DE VENDA.");
+            }
+            else if (saleModelView.IdClient < 0)
+            {
+                throw new Exception("Informe o ID DO CLIENTE.");
+            }
+            else if (saleModelView.IdContribuitor < 0)
+            {
+                throw new Exception("Informe o ID DO CONTRIBUIDOR.");
+            }
+            else
+            {
                 sale1.TipoVenda = saleModelView.TipoVenda;
                 sale1.DataVenda = saleModelView.DataVenda;
                 sale1.IdClient = saleModelView.IdClient;
                 sale1.IdContribuitor = saleModelView.IdContribuitor;
-               
-
             }
 
             return sale1;

@@ -9,18 +9,16 @@ namespace DAL.ModelView
     {
 
         public Boolean StatusProduct { get; set; }
-        [Required]
         public long CodigoBarra { get; set; }
         [Required]
         public string Nome { get; set; }
-        [Required]
         public int Estoque { get; set; }
-        [Required]
         public string Lote { get; set; }
+        [Required]
         public string DataValidade { get; set; }
         public string DataCadastro { get; set; }
-        public string DataEntrada { get; set; }
         [Required]
+        public string DataEntrada { get; set; }
         public double PrecoCompra { get; set; }
         [Required]
         public double PrecoVenda { get; set; }

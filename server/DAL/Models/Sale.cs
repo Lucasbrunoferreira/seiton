@@ -9,16 +9,12 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdSale { get; set; }
-
-        [Required]
         public string TipoVenda { get; set; }
         [Required]
         public string DataVenda { get; set; }
-        [Required]
         public int IdClient { get; set; }
         [Required]
         public int IdContribuitor { get; set; }
-
 
     }
 }
