@@ -9,8 +9,8 @@ namespace DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdSector { get; set; }
-        [Required]
         public string Nome { get; set; }
+        [Required]
         public int NivelAcesso { get; set; }
         
     }

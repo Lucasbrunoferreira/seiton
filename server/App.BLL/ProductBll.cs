@@ -70,51 +70,51 @@ namespace App.BLL
 
             if(productModelView.CodigoBarra <= 0)
             {
-                throw new Exception("Informe um CÓDIGO de barra");
+                throw new Exception("Informe um CÓDIGO de barra do produto.");
             }
             else if (productModelView.Nome.Trim().Length == 0)
             {
-                throw new Exception("Informe o NOME do produto");
+                throw new Exception("Informe o NOME do produto.");
             }
             else if (productModelView.Estoque <= 0)
             {
-                throw new Exception("Informe a QUANTIDADE do produtp");
+                throw new Exception("Informe a QUANTIDADE do produtp.");
             }
             else if (productModelView.Lote.Trim().Length == 0)
             {
-                throw new Exception("Informe o LOTE do produto");
+                throw new Exception("Informe o LOTE do produto.");
             }
             else if (productModelView.DataValidade.Trim().Length == 0)
             {
-                throw new Exception("Informe a DATA DE VALIDADE do produto"); 
+                throw new Exception("Informe a DATA DE VALIDADE do produto."); 
             }
             else if (productModelView.DataCadastro.Trim().Length == 0)
             {
-                throw new Exception("Informe a DATA DE CADASTRO do produto");
+                throw new Exception("Informe a DATA DE CADASTRO do produto.");
             }
             else if (productModelView.DataEntrada.Trim().Length == 0)
             {
-                throw new Exception("Informe a DATA DE ENTRADA do produto");
+                throw new Exception("Informe a DATA DE ENTRADA do produto.");
             }
             else if (productModelView.PrecoCompra <= 0)
             {
-                throw new Exception("Informe o PREÇO DE COPRA do produto");
+                throw new Exception("Informe o PREÇO DE COMPRA do produto.");
             }
             else if (productModelView.PrecoVenda <= 0)
             {
-                throw new Exception("Informe o PREÇO DE VENDA do produto");
+                throw new Exception("Informe o PREÇO DE VENDA do produto.");
             }
             else if (productModelView.Icms <= 0)
             {
-                throw new Exception("Informeo o ICMS do produto"); 
+                throw new Exception("Informeo o ICMS do produto."); 
             }
             else if (productModelView.IdLine <= 0)
             {
-                throw new Exception("Informe o a LINHA do produto");
+                throw new Exception("Informe a LINHA do produto.");
             }
             else if (productModelView.IdProvider <= 0)
             {
-                throw new Exception("Informe o um FORNECEDOR do produto");
+                throw new Exception("Informe o FORNECEDOR do produto.");
             }
             else
             {

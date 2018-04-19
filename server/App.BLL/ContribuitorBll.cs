@@ -67,35 +67,35 @@ namespace App.BLL
 
             if (contribuitorModelView.Nome.Trim().Length == 0)
             {
-                throw new Exception("Informe um NOME");
+                throw new Exception("Informe o NOME.");
             }
             else if (contribuitorModelView.Usuario.Trim().Length == 0)
             {
-                throw new Exception("Informe um USUÁRIO");
+                throw new Exception("Informe o USUÁRIO.");
             }
             else if (contribuitorModelView.Senha.Trim().Length == 0)
             {
-                throw new Exception("Informe uma SENHA");
+                throw new Exception("Informe a SENHA.");
             }
             else if (contribuitorModelView.DataNascimento.Trim().Length == 0)
             {
-                throw new Exception("Informe uma DATA DE NASCIMENTO");
+                throw new Exception("Informe a DATA DE NASCIMENTO.");
             }
             else if (contribuitorModelView.Cpf.Trim().Length == 0)
             {
-                throw new Exception("Informe um CPF");
+                throw new Exception("Informe o CPF.");
             }
             else if (contribuitorModelView.IdSector == 0)
             {
-                throw new Exception("Iforme um SETOR");
+                throw new Exception("Iforme o SETOR.");
             }
             else if (contribuitorModelView.DataCadastro.Trim().Length == 0)
             {
-                throw new Exception("Iforme uma DATA DE CADASTRO");
+                throw new Exception("Iforme a DATA DE CADASTRO.");
             }
             else if (cpf.IsCpf(contribuitorModelView.Cpf) == false)
             {
-                throw new Exception("CPF inválido");
+                throw new Exception("CPF INVÁLIDO.");
             }
             else
             {

@@ -71,48 +71,78 @@ namespace App.BLL
             var client1 = new Client();
             var cpf = new ValidarCPF();
 
-            if (clientModelView.NomeRazaoSocial.Trim().Length != 0 &&
-                clientModelView.Cpf.Trim().Length != 0 &&
-                clientModelView.DataNascimento.Trim().Length != 0 &&
-                clientModelView.Cep.Trim().Length != 0 &&
-                clientModelView.Cidade.Trim().Length != 0 &&
-                clientModelView.Bairro.Trim().Length != 0 &&
-                clientModelView.Rua.Trim().Length != 0 &&
-                clientModelView.NumeroDaCasa > 0 &&
-                clientModelView.PontoReferencia.Trim().Length != 0 &&
-                clientModelView.Estado.Trim().Length != 0 &&
-                clientModelView.Telefone.Trim().Length != 0 &&
-                clientModelView.Email.Trim().Length != 0 &&
-                clientModelView.DataCadastro.Trim().Length != 0 
-                && cpf.IsCpf(clientModelView.Cpf) != false
-
-                )
+            if(clientModelView.NomeRazaoSocial.Trim().Length == 0)
             {
-
+                throw new Exception("Informe o NOME");
+            }
+            else if (clientModelView.Cpf.Trim().Length == 0)
+            {
+                throw new Exception("Informe o CPF");
+            }
+            else if(clientModelView.DataNascimento.Trim().Length == 0)
+            {
+                throw new Exception("Informe a DATA DE NASCIMENTO.");
+            }
+            else if (clientModelView.Cep.Trim().Length == 0)
+            {
+                throw new Exception("Informe o CEP.");
+            }
+            else if (clientModelView.Cidade.Trim().Length == 0)
+            {
+                throw new Exception("Informe a CIDADE.");
+            }
+            else if (clientModelView.Bairro.Trim().Length == 0)
+            {
+                throw new Exception("Informe o BAIRRO.");
+            }
+            else if (clientModelView.Rua.Trim().Length == 0)
+            {
+                throw new Exception("Informe a RUA.");
+            }
+            else if (clientModelView.NumeroDaCasa < 0)
+            {
+                throw new Exception("Informe o NUEMRO DE CASA.");
+            }
+            else if (clientModelView.Estado.Trim().Length == 0)
+            {
+                throw new Exception("Informe o ESTADO.");
+            }
+            else if(clientModelView.Telefone.Trim().Length == 0)
+            {
+                throw new Exception("Informeo o TELEFONE.");
+            }
+            else if (clientModelView.Email.Trim().Length == 0)
+            {
+                throw new Exception("Informe o EMAIL.");
+            }
+            else if(clientModelView.DataCadastro.Trim().Length == 0)
+            {
+                throw new Exception("Informe uma DATA DE CADASTRO.");
+            }
+            else if (cpf.IsCpf(clientModelView.Cpf) != false)
+            {
+                throw new Exception("CPF INVÁLIDO");
+            }
+            else
+            {
                 client1.NomeRazaoSocial = clientModelView.NomeRazaoSocial;
-                client1.Cpf             = clientModelView.Cpf;
-                client1.DataNascimento  = clientModelView.DataNascimento;
-                client1.Cep             = clientModelView.Cep;
-                client1.Cidade          = clientModelView.Cidade;
-                client1.Bairro          = clientModelView.Bairro;
-                client1.Rua             = clientModelView.Rua;
-                client1.NumeroDaCasa    = clientModelView.NumeroDaCasa;
+                client1.Cpf = clientModelView.Cpf;
+                client1.DataNascimento = clientModelView.DataNascimento;
+                client1.Cep = clientModelView.Cep;
+                client1.Cidade = clientModelView.Cidade;
+                client1.Bairro = clientModelView.Bairro;
+                client1.Rua = clientModelView.Rua;
+                client1.NumeroDaCasa = clientModelView.NumeroDaCasa;
                 client1.PontoReferencia = clientModelView.PontoReferencia;
-                client1.Estado          = clientModelView.Estado;
-                client1.Telefone        = clientModelView.Telefone;
-                client1.Email           = clientModelView.Email;
-                client1.DataCadastro    = clientModelView.DataCadastro;
-
+                client1.Estado = clientModelView.Estado;
+                client1.Telefone = clientModelView.Telefone;
+                client1.Email = clientModelView.Email;
+                client1.DataCadastro = clientModelView.DataCadastro;
             }
 
             return client1;
 
         }
-
-
-
-
-
 
     }
 }

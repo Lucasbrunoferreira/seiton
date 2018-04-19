@@ -18,7 +18,9 @@ namespace DAL.ModelView
         public string DataNascimento { get; set; }
         [Required]
         public string DataCadastro { get; set; }
+        [Required]
         public int IdSector { get; set; }
+
 
     }
 }
