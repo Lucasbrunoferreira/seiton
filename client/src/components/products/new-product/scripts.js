@@ -88,9 +88,11 @@ export default {
         this.color = 'success'
         this.text = 'Produto cadastrado com sucesso!'
         this.snackbar = true
+        this.$refs.form.reset()
+        this.dataValidade = ''
       }).catch(() => {
         this.color = 'error'
-        this.text = 'Erro ao cadastrar produto...'
+        this.text = 'Erro ao cadastrar produto!'
         this.snackbar = true
       })
     },
