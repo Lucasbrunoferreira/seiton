@@ -67,19 +67,24 @@ namespace App.BLL
 
             var productSale1 = new ProductSale();
 
-            if (
-                
-                productSaleModelView.IdSale > 0 && productSaleModelView.IdProduct > 0 &&
-                productSaleModelView.SaleDate.Trim().Length != 0 )
+            if (productSaleModelView.IdSale <= 0)
             {
+                throw new Exception("Informe o uma VENDA(ID) de produto.");
+            }
+            else if (productSaleModelView.IdProduct <= 0)
+            {
+                throw new Exception("Informe o um PRODUTO(ID) de venda.");
+            }
+            else if (productSaleModelView.SaleDate.Trim().Length == 0)
+            {
+                throw new Exception("Informe a data de VENDA do produto.");
+            }
 
-
-                productSale1.IdSale          = productSaleModelView.IdSale;
-                productSale1.IdProduct       = productSaleModelView.IdProduct;
-                productSale1.SaleDate        = productSaleModelView.SaleDate;
-
-             
-
+            else
+            {
+                productSale1.IdSale = productSaleModelView.IdSale;
+                productSale1.IdProduct = productSaleModelView.IdProduct;
+                productSale1.SaleDate = productSaleModelView.SaleDate;
             }
 
             return productSale1;

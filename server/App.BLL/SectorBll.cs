@@ -63,12 +63,20 @@ namespace App.BLL
 
             var sector1 = new Sector();
 
-            if (sectorModelView.Nome.Trim().Length != 0 && sectorModelView.NivelAcesso >= 0)
-            {
 
+            if (sectorModelView.Nome.Trim().Length == 0)
+            {
+                throw new Exception("Informe o NOME do setor.");
+            }
+            else if (sectorModelView.NivelAcesso <= 0)
+            {
+                throw new Exception("Informe o NIVEL DE ACESSO do setor.");
+            }
+
+            else
+            {
                 sector1.Nome = sectorModelView.Nome;
                 sector1.NivelAcesso = sectorModelView.NivelAcesso;
-
             }
 
             return sector1;

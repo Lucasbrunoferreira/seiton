@@ -23,10 +23,10 @@ namespace BancoDeDados
         {
             options.UseMySql(
             "server=localhost; " +
-            "port=3300;" +
+            "port=3306;" +
             "userid=root;" +
-            "password=root; " +
-            "database=seiton;");
+            "password=; " +
+            "database=seitonserver;");
         }
     }
 }

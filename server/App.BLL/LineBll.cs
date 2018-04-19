@@ -63,7 +63,11 @@ namespace App.BLL
 
             var line1 = new Line();
 
-            if(lineModelView.Nome.Trim().Length != 0)
+            if (lineModelView.Nome.Trim().Length == 0)
+            {
+                throw new Exception("Informe o NOME da linha.");
+            }
+            else
             {
 
                 line1.Nome = lineModelView.Nome;

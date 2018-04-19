@@ -78,7 +78,7 @@ namespace App.BLL
             }
             else if (productModelView.Estoque <= 0)
             {
-                throw new Exception("Informe a QUANTIDADE do produtp.");
+                throw new Exception("Informe a QUANTIDADE do produto.");
             }
             else if (productModelView.Lote.Trim().Length == 0)
             {
