@@ -6,8 +6,9 @@ namespace DAL.ModelView
     {
 
         //public Boolean StatusProvider { get; set; }
-        public string Cnpj { get; set; }
+        public string Nome { get; set; }
         [Required]
+        public string Cnpj { get; set; }
         public string Cidade { get; set; }      
         public string Responsavel { get; set; }
         [Required]

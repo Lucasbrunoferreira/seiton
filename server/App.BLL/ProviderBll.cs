@@ -69,13 +69,17 @@ namespace App.BLL
             {
                 throw new Exception("Informe o CNPJ.");
             }
+            else if(providerModelView.Nome.Trim().Length == 0)
+            {
+                throw new Exception("Informe o NOME.");
+            }
             else if(providerModelView.Cidade.Trim().Length == 0)
             {
-                throw new Exception("Informe a Cidade.");
+                throw new Exception("Informe a CIDADE.");
             }
             else if(providerModelView.Responsavel.Trim().Length == 0)
             {
-                throw new Exception("Informe o Responsavel.");
+                throw new Exception("Informe o RESPONSAVEL.");
             }
             else if(providerModelView.Telefone.Trim().Length == 0)
             {
@@ -92,6 +96,7 @@ namespace App.BLL
             else
             {
                 provider1.Cnpj = providerModelView.Cnpj;
+                provider1.Nome = providerModelView.Nome;
                 provider1.Cidade = providerModelView.Cidade;
                 provider1.Responsavel = providerModelView.Responsavel;
                 provider1.Telefone = providerModelView.Telefone;

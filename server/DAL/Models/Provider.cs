@@ -11,8 +11,9 @@ namespace DAL.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdProvider { get; set; }
         //public Boolean StatusProvider { get; set; }
-        public string Cnpj { get; set; }
+        public string Nome { get; set; }
         [Required]
+        public string Cnpj { get; set; }
         public string Cidade { get; set; }
         public string Responsavel { get; set; }
         [Required]
