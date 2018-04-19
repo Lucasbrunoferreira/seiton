@@ -17,7 +17,7 @@ namespace DAL.Models
         public long CodigoBarra { get; set; }
         [Required]
         public string Nome { get; set; }
-        [Required]
+        [Required] 
         public int Estoque { get; set; }
         [Required]
         public string Lote { get; set; }
