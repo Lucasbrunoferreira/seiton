@@ -1,4 +1,4 @@
-import { navigationDrawer, headerBar, products, clients } from '../../components/index'
+import { navigationDrawer, headerBar, products, clients, newProduct } from '../../components/index'
 
 export default {
   name: 'HomePage',
@@ -6,7 +6,8 @@ export default {
     navigationDrawer,
     headerBar,
     products,
-    clients
+    clients,
+    newProduct
   },
   data () {
     return {

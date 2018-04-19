@@ -16,6 +16,6 @@
 
       button.pagination__item.pagination__item--active.primary { background: $color-primary !important; color: #fff; }
       .primary--text input, .primary--text textarea { color: $color-primary !important; }
-
+      th { font-weight: bold; }
   }
 }
