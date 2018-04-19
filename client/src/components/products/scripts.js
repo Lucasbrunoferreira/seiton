@@ -39,6 +39,7 @@ export default {
       .then(response => {
         this.items = response.data
         this.totalItems = Object.keys(this.items).length
+        console.log(this.totalItems)
       })
       .catch(e => {
         this.errors.push(e)

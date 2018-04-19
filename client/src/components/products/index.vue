@@ -41,7 +41,9 @@
         </table>
 
       <span>
-        <table class="analityc-table" >Analise</table>
+        <table class="analityc-table" >
+          <img src="/static/img/analise.png">
+        </table>
         <ul class="btns-produtcts">
           <li>
             <v-btn large icon to="/produtos/novo" color="primary">

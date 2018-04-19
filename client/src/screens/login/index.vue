@@ -34,7 +34,7 @@
               Usuário ou Senha inválido(s)!
             </v-alert>
             <div class="submit">
-              <v-btn class="btn-login" large @click="submit">
+              <v-btn class="primary" large @click="submit">
                 <b>Entrar</b>
               </v-btn>
             </div>

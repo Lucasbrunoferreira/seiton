@@ -2,15 +2,17 @@
   h1 { margin: 30px $mrgItems; color: $color-primary; }
 
   ul.fast-view { display: flex; justify-content: space-between; margin: $mrgItems;
-      li { display:flex; background: #fff; width: 310px; height: 50px; align-items: center; padding-left: 30px; font-size: 18px;
+      li { display:flex; background: #fff; width: 310px; height: 50px; align-items: center; padding-left: 30px; font-size: 18px; box-shadow: 0px 0px 6px 0px rgba(89,89,89,0.25);
         .qtdFast { color: rgb(197, 0, 0); margin: 0px 10px; font-size: 25px; }
         img { width: 30px; }
       }
   }
 
   div.content { display: flex; justify-content: space-between; margin: $mrgItems;
-      .products-table { width: 800px; height: 350px;}
-      .analityc-table { height: 300px; width: 300px; border: 1px black solid; }
+      .products-table { width: 800px; height: 350px; box-shadow: 0px 0px 6px 0px rgba(89,89,89,0.20);}
+      .analityc-table { height: 300px; width: 300px; background: #fff; box-shadow: 0px 0px 6px 0px rgba(89,89,89,0.30);
+        img { height: 350px; width: 260px; }
+      }
       .btns-produtcts { margin-top: 35px; display: flex; justify-content: space-between; }
       table.datatable.table { background: #fff; }
 
