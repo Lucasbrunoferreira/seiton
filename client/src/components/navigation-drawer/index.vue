@@ -36,3 +36,5 @@
 </template>
 
 <script src="./scripts.js"></script>
+
+<style src="../../css/navigation-drawer.css"></style>

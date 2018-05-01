@@ -6,6 +6,4 @@
 
 <script src="./scripts"></script>
 
-<style lang="scss">
-  @import '../../css/style.scss';
-</style>
+<style src="../../css/app.css"></style>

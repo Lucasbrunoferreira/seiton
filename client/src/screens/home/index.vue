@@ -12,8 +12,6 @@
   </div>
 </template>
 
-<style lang="scss">
-  @import '../../css/style.scss';
-</style>
+<style lang="css" src="../../css/home.css"></style>
 
 <script src="./scripts"></script>

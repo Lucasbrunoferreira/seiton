@@ -8,7 +8,7 @@
       <li><img src="/static/icons/caution-sign.svg"> <span class="qtdFast">3</span> Produtos em Risco</li>
     </ul>
 
-    <div class="content">
+    <div class="content-products">
       <table class="products-table">
         <v-card>
             <v-card-title>
@@ -67,3 +67,5 @@
 </template>
 
 <script src="./scripts.js"></script>
+
+<style src="../../css/products.css"> </style>

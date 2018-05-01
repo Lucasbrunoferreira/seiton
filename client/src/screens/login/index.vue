@@ -48,6 +48,4 @@
 
 <script src="./scripts"></script>
 
-<style lang="scss">
-  @import '../../css/style.scss';
-</style>
+<style lang="css" src="../../css/login.css"></style>
