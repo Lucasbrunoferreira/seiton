@@ -109,3 +109,6 @@
 </template>
 
 <script src="./scripts.js"></script>
+
+<style src="../../../css/new-product.css"></style>
+
