@@ -51,7 +51,7 @@
             </v-btn>
             </li>
           <li>
-            <v-btn large icon to="/produtos/novo" color="primary">
+            <v-btn large icon @click="ola" color="primary">
               <img src="/static/icons/edit.png" style="width: 25px">
             </v-btn>
           </li>

@@ -17,7 +17,7 @@
           <v-form ref="form">
             <v-text-field
               label="Usuário"
-              v-model="user">
+              v-model="email">
             </v-text-field>
             <v-text-field
               type="password"
@@ -34,7 +34,7 @@
               Usuário ou Senha inválido(s)!
             </v-alert>
             <div class="submit">
-              <v-btn class="primary" large @click="submit">
+              <v-btn class="primary" large v-on:click="Login(pass, email)">
                 <b>Entrar</b>
               </v-btn>
             </div>

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { PRODUCTS } from '../../../helpers/const'
 
 export default {
   name: 'newProduct',
@@ -68,7 +69,7 @@ export default {
       this.$router.push('/produtos')
     },
     submit () {
-      axios.post('http://localhost:58538/api/products',
+      axios.post(PRODUCTS,
         {
           statusProduct: true,
           codigoBarra: parseInt(this.codBarras),

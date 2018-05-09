@@ -13,6 +13,11 @@ export default {
     return {
     }
   },
+  created: function () {
+    if (!localStorage.idUser) {
+      this.$router.push('/')
+    }
+  },
   methods: {
   }
 }

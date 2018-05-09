@@ -1,6 +1,6 @@
 <template>
-  <div class="header-content">
-   <div class="photo">foto</div>
+  <div>
+    {{ email }}
   </div>
 </template>
 
