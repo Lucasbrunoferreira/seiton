@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { PRODUCTS } from '../../helpers/const'
 
 export default {
   data () {
@@ -35,11 +36,10 @@ export default {
     }
   },
   created () {
-    axios.get(`http://localhost:58538/api/products`)
+    axios.get(PRODUCTS)
       .then(response => {
         this.items = response.data
         this.totalItems = Object.keys(this.items).length
-        console.log(this.totalItems)
       })
       .catch(e => {
         this.errors.push(e)
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     ola () {
-      alert('ola')
+      console.log(localStorage.idUser)
     }
   }
 }
