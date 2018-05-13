@@ -22,7 +22,7 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
-        public Provider obeterPorId(int id)
+        public Provider ObeterPorId(int id)
         {
             using (var bancoDeDados = new BancoDeDados())
             {
@@ -33,13 +33,24 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
+        public Provider ObterPorCnpj(string cnpj)
+        {
+
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados.Provider.Where(x => x.Cnpj == cnpj).FirstOrDefault();
+            }
+
+        }
+
         public void Deletar(int id)
         {
 
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                var provider = obeterPorId(id);
+                var provider = ObeterPorId(id);
 
                 bancoDeDados.Provider.Remove(provider);
                 bancoDeDados.SaveChanges();

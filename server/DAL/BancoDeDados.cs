@@ -17,7 +17,22 @@ namespace BancoDeDados
         public DbSet<Sale> Sale { get; set; }
         public DbSet<Client> Client { get; set; }
         public DbSet<Product> Product { get; set; }
-        public DbSet<ProductSale> ProductSale { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductSale>()
+                .HasKey(ps => new { ps.IdProduct, ps.IdSale });
+
+            modelBuilder.Entity<ProductSale>()
+                .HasOne(bc => bc.Sale)
+                .WithMany(b => b.ProductSales)
+                .HasForeignKey(bc => bc.IdSale);
+
+            modelBuilder.Entity<ProductSale>()
+                .HasOne(bc => bc.Product)
+                .WithMany(c => c.ProductSales)
+                .HasForeignKey(bc => bc.IdProduct);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -25,7 +40,7 @@ namespace BancoDeDados
             "server=localhost; " +
             "port=3306;" +
             "userid=root;" +
-            "password=; " +
+            "password=root; " +
             "database=seitonserver;");
         }
     }

@@ -27,7 +27,7 @@ namespace App.BLL
         {
 
             var providerDao = new ProviderDao();
-            return providerDao.obeterPorId(id);
+            return providerDao.ObeterPorId(id);
 
         }
 
@@ -43,7 +43,7 @@ namespace App.BLL
         {
 
             var providerDao = new ProviderDao();
-            var provider = providerDao.obeterPorId(id);
+            var provider = providerDao.ObeterPorId(id);
 
             var providerAt = PreparaProvider(providerModelView, provider);
 
@@ -63,9 +63,18 @@ namespace App.BLL
         {
 
             var provider1 = new Provider();
+            ProviderDao providerDao = new ProviderDao();
+
+            var providerExistente = providerDao.ObterPorCnpj(providerModelView.Cnpj);
+
+            if(providerExistente != null)
+            {
+                throw new Exception("FORNECEDOR já existe.");
+            }
+
             var cnpj = new ValidarCNPJ();
 
-            if(providerModelView.Cnpj.Trim().Length == 0)
+            if (providerModelView.Cnpj.Trim().Length == 0)
             {
                 throw new Exception("Informe o CNPJ.");
             }

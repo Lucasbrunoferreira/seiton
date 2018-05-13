@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DAL.Models
 {
+    [Table("Provider")]
     public class Provider
     {
 
@@ -20,6 +22,7 @@ namespace DAL.Models
         public string Telefone { get; set; }
         [Required]
         public string Email { get; set; }
+        public ICollection<Product> Products { get; set; }
 
     }
 }

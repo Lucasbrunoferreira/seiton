@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BancoDeDados.ObjetoDeAcesso
 {
@@ -28,6 +29,20 @@ namespace BancoDeDados.ObjetoDeAcesso
             {
 
                 return bancoDeDados.Contribuitor.Find(id);
+
+            }
+
+        }
+
+        public Contribuitor ObeterPorUsuario(string usuario)
+        {
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados
+                    .Contribuitor
+                    .Where(x => x.Usuario.Equals(usuario))
+                    .FirstOrDefault();
 
             }
 

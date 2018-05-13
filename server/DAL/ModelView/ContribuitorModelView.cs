@@ -15,9 +15,9 @@ namespace DAL.ModelView
         public string Senha { get; set; }
         [Required]
         public string Cpf { get; set; }
-        public string DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
         [Required]
-        public string DataCadastro { get; set; }
+        public DateTime DataCadastro { get; set; }
         [Required]
         public int IdSector { get; set; }
 

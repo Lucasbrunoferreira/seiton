@@ -8,15 +8,17 @@ namespace DAL.Models
 {
     public class ProductSale
     {
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IdProductSale { get; set; }
+        [Required, ForeignKey("Sale")]
         public int IdSale { get; set; }
-        [Required]
+        public virtual Sale Sale { get; set; }
+
+
+        [Required, ForeignKey("Product")]
         public int IdProduct { get; set; }
+        public virtual Product Product { get; set; }
+
         [Required]
-        public string SaleDate { get; set; }
+        public DateTime SaleDate { get; set; }
 
     }
 }

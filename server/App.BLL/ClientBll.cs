@@ -69,6 +69,14 @@ namespace App.BLL
         {
 
             var client1 = new Client();
+            ClientDao clientDao = new ClientDao();
+            var clientExistente = clientDao.ObeterPorCpf(clientModelView.Cpf);
+
+            if(clientExistente != null)
+            {
+                throw new Exception("CLIENTE já cadastrado");
+            }
+
             var cpf = new ValidarCPF();
 
             if(clientModelView.NomeRazaoSocial.Trim().Length == 0)
@@ -79,7 +87,7 @@ namespace App.BLL
             {
                 throw new Exception("Informe o CPF");
             }
-            else if(clientModelView.DataNascimento.Trim().Length == 0)
+            else if(clientModelView.DataNascimento == null)
             {
                 throw new Exception("Informe a DATA DE NASCIMENTO.");
             }
@@ -115,11 +123,11 @@ namespace App.BLL
             {
                 throw new Exception("Informe o EMAIL.");
             }
-            else if(clientModelView.DataCadastro.Trim().Length == 0)
+            else if(clientModelView.DataCadastro == null)
             {
                 throw new Exception("Informe uma DATA DE CADASTRO.");
             }
-            else if (cpf.IsCpf(clientModelView.Cpf) != false)
+            else if (cpf.IsCpf(clientModelView.Cpf) == false)
             {
                 throw new Exception("CPF INVÁLIDO");
             }

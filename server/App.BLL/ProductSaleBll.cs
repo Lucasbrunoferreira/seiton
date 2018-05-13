@@ -47,7 +47,7 @@ namespace App.BLL
 
             var productSaleAt = PreparaProductSale(productSaleModelView, productSale);
 
-            productSaleAt.IdProductSale = id;
+            // productSaleAt.IdProductSale = id;
             productSaleDao.Atualizar(productSaleAt);
 
         }
@@ -75,7 +75,7 @@ namespace App.BLL
             {
                 throw new Exception("Informe o um PRODUTO(ID) de venda.");
             }
-            else if (productSaleModelView.SaleDate.Trim().Length == 0)
+            else if (productSaleModelView.SaleDate == null)
             {
                 throw new Exception("Informe a data de VENDA do produto.");
             }
