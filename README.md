@@ -16,3 +16,14 @@ npm run dev
 CERTIFIQUE-SE QUE O BACK TAMBEM ESTEJA RODANDO
 
 ```
+
+### Comando da Migrations
+
+``` bash
+# Acesse o menu EXIBIR > OUTRAS JANELAS > CONSOLE DO GERENCIDAOR DE PACOTES.
+
+# Rode o comando - cd DAL
+
+# Depois rode o comando - dotnet ef database update -s ../App/App.csproj
+
+```

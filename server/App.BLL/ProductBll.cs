@@ -36,7 +36,7 @@ namespace App.BLL
             ProductDao productDao = new ProductDao();
             int estoqueMinimo = int.Parse(Environment.GetEnvironmentVariable("ESTOQUE_ATENCAO"));
 
-            return productDao.ObeterPorQuantidadeEstoque(estoqueMinimo);
+            return productDao.ObeterPorQuantidadeAtencao(estoqueMinimo);
 
         }
 
