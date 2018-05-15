@@ -58,6 +58,20 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
+        public int ObeterPorQuantidadePerigo(int quantidade)
+        {
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados
+                    .Product
+                    .Where(x => x.Estoque <= quantidade)
+                    .Count();
+
+            }
+
+        }
+
         public void Deletar(int id)
         {
 

@@ -157,15 +157,15 @@ namespace App.Controllers
         }
 
         /// <summary>
-        /// Essa rota é responsável por controlar a quantidade Produtos no estoque
+        /// Essa rota é responsável por controlar a quantidade Produtos no estoque que estão com menos de 100 unidades
         /// </summary>
         /// <response code="200"> Busca efetuada com sucesso</response>
         /// <response code="404"> Erro ao Buscar o Produto </response>
         /// <returns></returns>
 
         [HttpGet]
-        [Route("buscarPorEstoque")]
-        public IActionResult GetByEstoque()
+        [Route("buscarPorEstoqueAtencao")]
+        public IActionResult GetByEstoqueAtencao()
         {
 
             try
@@ -179,6 +179,34 @@ namespace App.Controllers
 
                 Console.WriteLine(ex.Message);
                 return StatusCode(404, new {Erro = ex.Message }); //Recurso não Encontrado
+
+            }
+
+        }
+
+        /// <summary>
+        /// Essa rota é responsável por controlar a quantidade Produtos no estoque que estão com menos de 50 umidades
+        /// </summary>
+        /// <response code="200"> Busca efetuada com sucesso</response>
+        /// <response code="404"> Erro ao Buscar o Produto </response>
+        /// <returns></returns>
+
+        [HttpGet]
+        [Route("buscarPorEstoquePerigo")]
+        public IActionResult GetByEstoquePerigo()
+        {
+
+            try
+            {
+                var productBll = new ProductBll();
+                var quantidade = productBll.ObterPorEstoquePerigo();
+                return StatusCode(200, new { Quantidade = quantidade }); //Recurso Encontrado mesmo que estege nulo
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                return StatusCode(404, new { Erro = ex.Message }); //Recurso não Encontrado
 
             }
 

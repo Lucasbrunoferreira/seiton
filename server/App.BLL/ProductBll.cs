@@ -40,6 +40,16 @@ namespace App.BLL
 
         }
 
+        public int ObterPorEstoquePerigo()
+        {
+
+            ProductDao productDao = new ProductDao();
+            int estoqueMinimo = int.Parse(Environment.GetEnvironmentVariable("ESTOQUE_PERIGO"));
+
+            return productDao.ObeterPorQuantidadePerigo(estoqueMinimo);
+
+        }
+
         public void Delete(int id)
         {
 
