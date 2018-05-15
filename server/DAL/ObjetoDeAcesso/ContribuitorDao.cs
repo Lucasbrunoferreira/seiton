@@ -34,6 +34,17 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
+        public Contribuitor ObterPorCpf(string cpf)
+        {
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados.Contribuitor.Where(x => x.Cpf == cpf).FirstOrDefault();
+
+            }
+        }
+
+
         public Contribuitor ObeterPorUsuario(string usuario)
         {
             using (var bancoDeDados = new BancoDeDados())

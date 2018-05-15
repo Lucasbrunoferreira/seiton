@@ -86,7 +86,16 @@ namespace BLL
         {
 
             var contribuitor1 = new Contribuitor();
+            ContribuitorDao contribuitorDao = new ContribuitorDao();
+            var contribuitorExistente = contribuitorDao.ObterPorCpf(contribuitorModelView.Cpf);
+
+            if (contribuitorExistente != null)
+            {
+                throw new Exception("Contribuidor já cadastrado");
+            }
+
             var cpf = new ValidarCPF();
+
 
             if (contribuitorModelView.Nome.Trim().Length == 0)
             {
