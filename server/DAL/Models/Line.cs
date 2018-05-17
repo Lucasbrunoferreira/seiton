@@ -6,6 +6,7 @@ using System.Text;
 
 namespace DAL.Models
 {
+    [Table("Line")]
     public class Line
     {
 
@@ -14,6 +15,8 @@ namespace DAL.Models
         public int IdLine { get; set; }
         [Required]
         public string Nome { get; set; }
+
+        public ICollection<Product> Products { get; set; }
 
 
     }

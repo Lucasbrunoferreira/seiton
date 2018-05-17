@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using App.BLL.HashUtil;
 using BancoDeDados.ObjetoDeAcesso;
 using DAL;
 using DAL.Models;
 using DAL.ModelView;
 
-namespace App.BLL
+namespace BLL
 {
     public class ContribuitorBll
     {
@@ -20,6 +21,28 @@ namespace App.BLL
 
             var contribuitorDao = new ContribuitorDao();
             contribuitorDao.Inserir(contribuitor);
+
+        }
+
+        public Contribuitor Login(string usuario, string senha)
+        {
+            var contribuitorDao = new ContribuitorDao();
+
+            Contribuitor contribuitor = contribuitorDao.ObeterPorUsuario(usuario);
+
+            if(contribuitor == null)
+            {
+                throw new Exception("USUÁRIO inexistente.");
+            }
+               
+            if(HashService.CheckPassword(senha, contribuitor.Senha))
+            {
+                return contribuitor;
+            }
+            else
+            {
+                throw new Exception("SENHA inválida.");
+            }
 
         }
 
@@ -63,7 +86,16 @@ namespace App.BLL
         {
 
             var contribuitor1 = new Contribuitor();
+            ContribuitorDao contribuitorDao = new ContribuitorDao();
+            var contribuitorExistente = contribuitorDao.ObterPorCpf(contribuitorModelView.Cpf);
+
+            if (contribuitorExistente != null)
+            {
+                throw new Exception("Contribuidor já cadastrado");
+            }
+
             var cpf = new ValidarCPF();
+
 
             if (contribuitorModelView.Nome.Trim().Length == 0)
             {
@@ -77,7 +109,7 @@ namespace App.BLL
             {
                 throw new Exception("Informe a SENHA.");
             }
-            else if (contribuitorModelView.DataNascimento.Trim().Length == 0)
+            else if (contribuitorModelView.DataNascimento == null)
             {
                 throw new Exception("Informe a DATA DE NASCIMENTO.");
             }
@@ -89,7 +121,7 @@ namespace App.BLL
             {
                 throw new Exception("Iforme o SETOR.");
             }
-            else if (contribuitorModelView.DataCadastro.Trim().Length == 0)
+            else if (contribuitorModelView.DataCadastro == null)
             {
                 throw new Exception("Iforme a DATA DE CADASTRO.");
             }
@@ -101,7 +133,7 @@ namespace App.BLL
             {
                 contribuitor1.Nome = contribuitorModelView.Nome;
                 contribuitor1.Usuario = contribuitorModelView.Usuario;
-                contribuitor1.Senha = contribuitorModelView.Senha;
+                contribuitor1.Senha = HashService.HashPassword(contribuitorModelView.Senha);
                 contribuitor1.Cpf = contribuitorModelView.Cpf;
                 contribuitor1.DataNascimento = contribuitorModelView.DataNascimento;
                 contribuitor1.DataCadastro = contribuitorModelView.DataCadastro;

@@ -6,6 +6,7 @@ using System.Text;
 
 namespace DAL.Models
 {
+    [Table("Product")]
     public class Product
     {
 
@@ -13,25 +14,30 @@ namespace DAL.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdProduct{ get; set; }
         public Boolean StatusProduct { get; set; }
-        public long CodigoBarra { get; set; }
+        public string CodigoBarra { get; set; }
         [Required]
         public string Nome { get; set; }
         public int Estoque { get; set; }
         public string Lote { get; set; }
         [Required]
-        public string DataValidade { get; set; }
-        public string DataCadastro { get; set; }
+        public DateTime DataValidade { get; set; }
+        public DateTime DataCadastro { get; set; }
         [Required]
-        public string DataEntrada { get; set; }
+        public DateTime DataEntrada { get; set; }
         public double PrecoCompra { get; set; }
         [Required]
         public double PrecoVenda { get; set; }
         public decimal Desconto { get; set; }
         public decimal Icms { get; set; }
-        [Required]
+        [Required, ForeignKey("Line")]
         public int IdLine { get; set; }
-        [Required]
+        public virtual Line Line { get; set; }
+
+        [Required, ForeignKey("Provider")]
         public int IdProvider { get; set; }
+        public virtual Provider Provider { get; set; }
+
+        public ICollection<ProductSale> ProductSales { get; set; }
 
     }
 }

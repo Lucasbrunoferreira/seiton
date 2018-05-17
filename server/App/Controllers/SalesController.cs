@@ -9,11 +9,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace App.Controllers
 {
-    
+
     [Route("api/Sales")]
     public class SalesController : Controller
     {
 
+        /// <summary>
+        /// Essa rota é responsável por criar uma Venda
+        /// </summary>
+        /// <param name="saleModelView">Os dados necessário para criar uma venda</param>
+        /// <response code="201"> Sucesso ao criar uma venda</response>
+        /// <response code="422"> Erro ao criar uma venda</response>
+        /// <returns></returns>
 
         [HttpPost]
         public IActionResult Post([FromBody] SaleModelView saleModelView)
@@ -24,7 +31,7 @@ namespace App.Controllers
 
                 var saleBll = new SaleBll();
                 saleBll.Inserir(saleModelView);
-                return StatusCode(201); //Postado com sucesso
+                return StatusCode(201, new { SaleBll = saleBll }); //Postado com sucesso
 
             }
             catch (Exception ex)
@@ -38,8 +45,13 @@ namespace App.Controllers
 
         }
 
-
-
+        /// <summary>
+        /// Essa rota é responsável por atualizar uma Venda
+        /// </summary>
+        /// <param name="saleModelView">Os dados necessário para atualizar uma venda</param>
+        /// <response code="204"> Sucesso ao atualizar uma venda</response>
+        /// <response code="422"> Erro ao atualizar uma venda</response>
+        /// <returns></returns>
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]  SaleModelView saleModelView)
@@ -50,7 +62,7 @@ namespace App.Controllers
 
                 var saleBll = new SaleBll();
                 saleBll.Atualizar(id, saleModelView);
-                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
+                return StatusCode(204, new { SaleBll = saleBll }); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
@@ -63,7 +75,13 @@ namespace App.Controllers
 
         }
 
-
+        /// <summary>
+        /// Essa rota é responsável por buscar uma Venda
+        /// </summary>
+        /// <param name="id">Os dados necessário para buscar uma venda</param>
+        /// <response code="201"> Sucesso ao buscar uma venda</response>
+        /// <response code="404"> Erro ao buscar uma venda</response>
+        /// <returns></returns>
 
         [HttpGet("{id}")]
         public IActionResult GetComId(int id)
@@ -87,8 +105,13 @@ namespace App.Controllers
 
         }
 
-
-
+        /// <summary>
+        /// Essa rota é responsável por buscar uma Venda
+        /// </summary>
+        /// <param name="id">Os dados necessário para buscar uma venda</param>
+        /// <response code="201"> Sucesso ao buscar uma venda</response>
+        /// <response code="404"> Erro ao buscar uma venda</response>
+        /// <returns></returns>
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -97,7 +120,7 @@ namespace App.Controllers
             {
                 var saleBll = new SaleBll();
                 saleBll.Delete(id);
-                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
+                return StatusCode(204, new {SaleBll = saleBll }); //Indica que o recurso foi excluído com sucesso
 
             }
             catch (Exception ex)
@@ -108,6 +131,13 @@ namespace App.Controllers
             }
         }
 
+        /// <summary>
+        /// Essa rota é responsável por buscar uma Venda
+        /// </summary>
+        /// <param name="id">Os dados necessário para buscar uma venda</param>
+        /// <response code="201"> Sucesso ao buscar uma venda</response>
+        /// <response code="404"> Erro ao buscar uma venda</response>
+        /// <returns></returns>
 
         [HttpGet]
         public IActionResult GetAll()
@@ -129,10 +159,6 @@ namespace App.Controllers
             }
 
         }
-
-
-
-
 
     }
 }

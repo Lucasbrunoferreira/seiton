@@ -26,11 +26,29 @@ namespace App.BLL
         {
 
             var productDao = new ProductDao();
-            return productDao.obeterPorId(id);
+            return productDao.ObeterPorId(id);
 
         }
 
+        public int ObterPorEstoqueAtencao()
+        {
 
+            ProductDao productDao = new ProductDao();
+            int estoqueMinimo = int.Parse(Environment.GetEnvironmentVariable("ESTOQUE_ATENCAO"));
+
+            return productDao.ObeterPorQuantidadeAtencao(estoqueMinimo);
+
+        }
+
+        public int ObterPorEstoquePerigo()
+        {
+
+            ProductDao productDao = new ProductDao();
+            int estoqueMinimo = int.Parse(Environment.GetEnvironmentVariable("ESTOQUE_PERIGO"));
+
+            return productDao.ObeterPorQuantidadePerigo(estoqueMinimo);
+
+        }
 
         public void Delete(int id)
         {
@@ -45,7 +63,7 @@ namespace App.BLL
         {
 
             var productDao = new ProductDao();
-            var product = productDao.obeterPorId(id);
+            var product = productDao.ObeterPorId(id);
 
             var productAt = PreparaProduct(productModelView, product);
 
@@ -66,9 +84,15 @@ namespace App.BLL
         {
 
             var product1 = new Product();
+            ProductDao productDao = new ProductDao();
 
+            var productExistente = productDao.ObeterPorCodigo(productModelView.CodigoBarra);
 
-            if(productModelView.CodigoBarra <= 0)
+            if(productExistente != null)
+            {
+                throw new Exception("O PRODUTO já existe");
+            }
+            if(productModelView.CodigoBarra.Trim().Length == 0)
             {
                 throw new Exception("Informe um CÓDIGO de barra do produto.");
             }
@@ -84,15 +108,15 @@ namespace App.BLL
             {
                 throw new Exception("Informe o LOTE do produto.");
             }
-            else if (productModelView.DataValidade.Trim().Length == 0)
+            else if (productModelView.DataValidade == null)
             {
                 throw new Exception("Informe a DATA DE VALIDADE do produto."); 
             }
-            else if (productModelView.DataCadastro.Trim().Length == 0)
+            else if (productModelView.DataCadastro == null)
             {
                 throw new Exception("Informe a DATA DE CADASTRO do produto.");
             }
-            else if (productModelView.DataEntrada.Trim().Length == 0)
+            else if (productModelView.DataEntrada == null)
             {
                 throw new Exception("Informe a DATA DE ENTRADA do produto.");
             }
@@ -137,9 +161,6 @@ namespace App.BLL
             return product1;
 
         }
-
-
-
 
     }
 }

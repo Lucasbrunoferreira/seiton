@@ -72,7 +72,7 @@ namespace App.BLL
             {
                 throw new Exception("Informe o TIPO DE VENDA.");
             }
-            else if(saleModelView.DataVenda.Trim().Length == 0)
+            else if(saleModelView.DataVenda == null)
             {
                 throw new Exception("Informe a DATA DE VENDA.");
             }

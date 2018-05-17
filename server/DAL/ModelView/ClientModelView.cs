@@ -12,7 +12,7 @@ namespace DAL.ModelView
         public string NomeRazaoSocial { get; set; }
         [Required]
         public string Cpf { get; set; }
-        public string DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
         [Required]
         public string Cep { get; set; }
         public string Cidade { get; set; }
@@ -28,7 +28,7 @@ namespace DAL.ModelView
         [Required]
         public string Email { get; set; }
         [Required]
-        public string DataCadastro { get; set; }
+        public DateTime DataCadastro { get; set; }
 
 
     }

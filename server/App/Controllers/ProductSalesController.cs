@@ -14,7 +14,14 @@ namespace App.Controllers
     public class ProductSalesController : Controller
     {
 
-
+        /// <summary>
+        ///  Essa rota é responsável por criar um ProductSale
+        /// </summary>
+        /// <param name="productSaleModelView">Os dados necessarios para criar um novo ProducSale</param>
+        /// <response code="201"> Sucesso ao criar um ProducSale</response>
+        /// <response code="422"> Erro ao criar um novo ProducSale</response>
+        /// <returns>retorna um novo Client</returns>
+        
         [HttpPost]
         public IActionResult Post([FromBody] ProductSaleModelView productSaleModelView)
         {
@@ -24,7 +31,7 @@ namespace App.Controllers
 
                 var productSaleBll = new ProductSaleBll();
                 productSaleBll.Inserir(productSaleModelView);
-                return StatusCode(201); //Postado com sucesso
+                return StatusCode(201, new {ProductSaleBll = productSaleBll }); //Postado com sucesso
 
             }
             catch (Exception ex)
@@ -37,6 +44,13 @@ namespace App.Controllers
 
         }
 
+        /// <summary>
+        ///  Essa rota é responsável por atualizar um ProductSale
+        /// </summary>
+        /// <param name="productSaleModelView">Os dados necessarios para atualizar um ProducSale</param>
+        /// <response code="204"> Sucesso ao atualizar um ProducSale</response>
+        /// <response code="422"> Erro ao atualizar um novo ProducSale</response>
+        /// <returns>retorna um novo Client</returns>
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]  ProductSaleModelView productSaleModelView)
@@ -47,7 +61,7 @@ namespace App.Controllers
 
                 var productSaleBll = new ProductSaleBll();
                 productSaleBll.Atualizar(id, productSaleModelView);
-                return StatusCode(204); //Indica que o recurso foi alterado com sucesso
+                return StatusCode(204, new { ProductSaleBll = productSaleBll }); //Indica que o recurso foi alterado com sucesso
 
             }
             catch (Exception ex)
@@ -60,6 +74,13 @@ namespace App.Controllers
 
         }
 
+        /// <summary>
+        ///  Essa rota é responsável por retornar um ProductSale
+        /// </summary>
+        /// <param name="id">Os dados necessarios para buscar um ProducSale</param>
+        /// <response code="201"> Sucesso ao buscar um ProducSale</response>
+        /// <response code="404"> Erro ao buscar um ProducSale</response>
+        /// <returns>retorna um novo Client</returns>
 
         [HttpGet("{id}")]
         public IActionResult GetComId(int id)
@@ -84,6 +105,13 @@ namespace App.Controllers
 
         }
 
+        /// <summary>
+        ///  Essa rota é responsável por deletar um ProductSale
+        /// </summary>
+        /// <param name="id">Os dados necessarios para deletar um ProducSale</param>
+        /// <response code="204"> Sucesso ao deletar um ProducSale</response>
+        /// <response code="404"> Erro ao deletar um ProducSale</response>
+        /// <returns>retorna um novo Client</returns>
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -92,7 +120,7 @@ namespace App.Controllers
             {
                 var productSaleBll = new ProductSaleBll();
                 productSaleBll.Delete(id);
-                return StatusCode(204); //Indica que o recurso foi excluído com sucesso
+                return StatusCode(204, new { ProductSaleBll = productSaleBll }); //Indica que o recurso foi excluído com sucesso
 
             }
             catch (Exception ex)
@@ -103,6 +131,12 @@ namespace App.Controllers
             }
         }
 
+        /// <summary>
+        ///  Essa rota é responsável por retornar ProductSale
+        /// </summary>
+        /// <response code="201"> Sucesso ao buscar ProducSale</response>
+        /// <response code="404"> Erro ao buscar ProducSale</response>
+        /// <returns>retorna um novo Client</returns>
 
         [HttpGet]
         public IActionResult GetAll()

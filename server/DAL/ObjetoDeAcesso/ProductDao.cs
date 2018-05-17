@@ -22,7 +22,7 @@ namespace BancoDeDados.ObjetoDeAcesso
         }
 
 
-        public Product obeterPorId(int id)
+        public Product ObeterPorId(int id)
         {
             using (var bancoDeDados = new BancoDeDados())
             {
@@ -33,6 +33,44 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
+        public Product ObeterPorCodigo(string codigo)
+        {
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados.Product.Where(x => x.CodigoBarra.Equals(codigo)).FirstOrDefault();
+
+            }
+
+        }
+
+        public int ObeterPorQuantidadeAtencao(int quantidade)
+        {
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados
+                    .Product
+                    .Where(x => x.Estoque <= quantidade)
+                    .Count();
+
+            }
+
+        }
+
+        public int ObeterPorQuantidadePerigo(int quantidade)
+        {
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados
+                    .Product
+                    .Where(x => x.Estoque <= quantidade)
+                    .Count();
+
+            }
+
+        }
 
         public void Deletar(int id)
         {
@@ -40,7 +78,7 @@ namespace BancoDeDados.ObjetoDeAcesso
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                var product = obeterPorId(id);
+                var product = ObeterPorId(id);
 
                 bancoDeDados.Product.Remove(product);
                 bancoDeDados.SaveChanges();
@@ -48,8 +86,6 @@ namespace BancoDeDados.ObjetoDeAcesso
             }
 
         }
-
-
 
         public void Atualizar(Product product)
         {
@@ -75,9 +111,6 @@ namespace BancoDeDados.ObjetoDeAcesso
             }
 
         }
-
-
-
 
     }
 }

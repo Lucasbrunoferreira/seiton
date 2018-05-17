@@ -12,7 +12,7 @@ namespace DAL.ModelView
         public int IdSale { get; set; }
         public int IdProduct { get; set; }
         [Required]
-        public string SaleDate { get; set; }
+        public DateTime SaleDate { get; set; }
 
 
     }

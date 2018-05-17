@@ -6,6 +6,7 @@ using System.Text;
 
 namespace DAL.Models
 {
+    [Table("Client")]
     public class Client
     {
         [Key]
@@ -15,7 +16,7 @@ namespace DAL.Models
         public string NomeRazaoSocial { get; set; }
         [Required]
         public string Cpf { get; set; }
-        public string DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
         [Required]
         public string Cep { get; set; }
         public string Cidade { get; set; }
@@ -31,8 +32,8 @@ namespace DAL.Models
         [Required]
         public string Email { get; set; }
         [Required]
-        public string DataCadastro { get; set; }
-
+        public DateTime DataCadastro { get; set; }
+        public ICollection<Sale> Sale { get; set; }
 
     }
 }

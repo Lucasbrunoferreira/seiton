@@ -22,7 +22,6 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
-
         public Client obeterPorId(int id)
         {
             using (var bancoDeDados = new BancoDeDados())
@@ -34,6 +33,16 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
+        public Client ObeterPorCpf(string cpf)
+        {
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados.Client.Where(x => x.Cpf == cpf).FirstOrDefault();
+
+            }
+
+        }
 
         public void Deletar(int id)
         {
@@ -76,10 +85,6 @@ namespace BancoDeDados.ObjetoDeAcesso
             }
 
         }
-
-
-
-
 
 
     }
