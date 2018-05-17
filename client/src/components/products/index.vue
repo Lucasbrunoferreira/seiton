@@ -25,13 +25,23 @@
               :items="items"
               :search="search"
             >
-              <template slot="items" slot-scope="props" class="product-hover" @click="ola()">
+              <template slot="items" slot-scope="props" class="product-hover">
                 <td>{{ props.item.nome }}</td>
                 <td class="text-xs-right">{{ props.item.codigoBarra }}</td>
                 <td class="text-xs-right">{{ props.item.estoque }}</td>
                 <td class="text-xs-right">R$&emsp;{{ props.item.precoCompra }}</td>
                 <td class="text-xs-right">R$&emsp;{{ props.item.precoVenda }}</td>
                 <td class="text-xs-right">{{ props.item.desconto }}%</td>
+                <td class="text-xs-right">
+                  <a href="#">
+                    <v-icon class="listOptions" color="blue-grey lighten-2" @click="itemEdit(props.item)">edit</v-icon>
+                  </a>
+                </td>
+                <td class="text-xs-right">
+                  <a href="#">
+                    <v-icon class="listOptions" color="red lighten-2" @click="openDelete(props.item.idProduct)">delete</v-icon>
+                  </a>
+                </td>
               </template>
               <v-alert slot="no-results" :value="true" outline color="error" icon="warning">
                 Não foi encontado "{{ search }}" na lista de produtos.
@@ -49,20 +59,32 @@
             <v-btn large icon to="/produtos/novo" color="primary">
               <img src="/static/icons/new.png" style="width: 25px">
             </v-btn>
-            </li>
-          <li>
-            <v-btn large icon @click="ola" color="primary">
-              <img src="/static/icons/edit.png" style="width: 25px">
-            </v-btn>
-          </li>
-          <li>
-            <v-btn large icon to="/produtos/novo" color="primary">
-              <img src="/static/icons/delete.png" style="width: 25px">
-            </v-btn>
           </li>
         </ul>
       </span>
     </div>
+    <v-layout row justify-center>
+      <v-dialog v-model="isOpen" persistent max-width="290">
+        <v-card>
+          <v-card-title class="headline">Deseja realmente deletar este item?</v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="red darken-1" flat @click.native="isOpen = false">CANCELAR</v-btn>
+            <v-btn color="green darken-1" flat @click="itemDelete()">DELETAR</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-layout>
+    <v-snackbar
+      :timeout="timeout"
+      :color="color"
+      :multi-line="mode === 'multi-line'"
+      :vertical="mode === 'vertical'"
+      v-model="snackbar"
+    >
+      {{ text }}
+      <v-btn dark flat @click.native="snackbar = false">Close</v-btn>
+    </v-snackbar>
   </div>
 </template>
 

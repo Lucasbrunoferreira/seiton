@@ -29,3 +29,5 @@ button.pagination__item.pagination__item--active.primary { background: #132135 !
 .primary--text input, .primary--text textarea { color: #132135  !important; }
 
  th { font-weight: bold; }
+
+ .listOptions { font-size: 20px }

@@ -4,10 +4,17 @@ import { PRODUCTS } from '../../helpers/const'
 export default {
   data () {
     return {
+      snackbar: false,
+      color: '',
+      mode: '',
+      timeout: 6000,
+      text: '',
       totalItems: null,
       products: [],
       items: [],
       search: '',
+      isOpen: false,
+      idProduto: null,
       headers: [{
         text: 'Descrição do Produto',
         align: 'left',
@@ -54,8 +61,37 @@ export default {
     }
   },
   methods: {
-    ola () {
-      console.log(localStorage.idUser)
+    itemEdit (item) {
+      console.log(item)
+      window.localStorage.setItem('itemToEdit', JSON.stringify(item))
+      this.$router.push('/produtos/novo')
+    },
+    openDelete (value) {
+      this.idProduto = value
+      this.isOpen = true
+    },
+    itemDelete () {
+      this.isOpen = false
+      axios.delete(PRODUCTS + this.idProduto)
+        .then(response => {
+          this.color = 'success'
+          this.text = 'Produto excluido com sucesso!'
+          this.snackbar = true
+          axios.get(PRODUCTS)
+            .then(response => {
+              this.items = response.data
+              this.totalItems = Object.keys(this.items).length
+            })
+            .catch(e => {
+              this.errors.push(e)
+            })
+        })
+        .catch(e => {
+          console.warn(e)
+          this.color = 'error'
+          this.text = 'Houve um erro inesperado!'
+          this.snackbar = true
+        })
     }
   }
 }

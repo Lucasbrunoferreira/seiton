@@ -5,6 +5,8 @@ export default {
   name: 'newProduct',
   data () {
     return {
+      titulo: 'Novo Produto',
+      editProduct: {},
       valid: true,
       descricao: null,
       descricaoRules: [
@@ -64,38 +66,73 @@ export default {
       this.dataValidade = ''
     },
     cancelar () {
+      window.localStorage.removeItem('itemToEdit')
       this.$refs.form.reset()
       this.dataValidade = ''
       this.$router.push('/produtos')
     },
     submit () {
-      axios.post(PRODUCTS,
-        {
-          statusProduct: true,
-          codigoBarra: parseInt(this.codBarras),
-          nome: this.descricao,
-          estoque: 10,
-          lote: '4876',
-          dataValidade: this.dataValidade,
-          dataCadastro: this.dataAtual,
-          dataEntrada: this.dataAtual,
-          precoCompra: parseInt(this.precoCompra),
-          precoVenda: parseInt(this.precoVenda),
-          desconto: parseInt(this.desconto),
-          icms: parseInt(this.icms),
-          idLine: 1,
-          idProvider: 1
-        }).then((response) => {
-        this.color = 'success'
-        this.text = 'Produto cadastrado com sucesso!'
-        this.snackbar = true
-        this.$refs.form.reset()
-        this.dataValidade = ''
-      }).catch(() => {
-        this.color = 'error'
-        this.text = 'Erro ao cadastrar produto!'
-        this.snackbar = true
-      })
+      if (localStorage.itemToEdit) {
+        axios.put(PRODUCTS + this.editProduct.idProduct,
+          {
+            statusProduct: true,
+            codigoBarra: parseInt(this.codBarras),
+            nome: this.descricao,
+            estoque: 10,
+            lote: '4876',
+            dataValidade: this.dataValidade,
+            dataCadastro: this.dataAtual,
+            dataEntrada: this.dataAtual,
+            precoCompra: parseInt(this.precoCompra),
+            precoVenda: parseInt(this.precoVenda),
+            desconto: parseInt(this.desconto),
+            icms: parseInt(this.icms),
+            idLine: 1,
+            idProvider: 1
+          }).then((response) => {
+          this.color = 'success'
+          this.text = 'Produto alterado com sucesso!'
+          this.snackbar = true
+          this.$refs.form.reset()
+          this.dataValidade = ''
+          window.localStorage.removeItem('itemToEdit')
+          setTimeout(() => {
+            this.$router.push('/produtos')
+          }, 3500)
+        }).catch(() => {
+          this.color = 'error'
+          this.text = 'Erro ao alterar o produto!'
+          this.snackbar = true
+        })
+      } else {
+        axios.post(PRODUCTS,
+          {
+            statusProduct: true,
+            codigoBarra: parseInt(this.codBarras),
+            nome: this.descricao,
+            estoque: 10,
+            lote: '4876',
+            dataValidade: this.dataValidade,
+            dataCadastro: this.dataAtual,
+            dataEntrada: this.dataAtual,
+            precoCompra: parseInt(this.precoCompra),
+            precoVenda: parseInt(this.precoVenda),
+            desconto: parseInt(this.desconto),
+            icms: parseInt(this.icms),
+            idLine: 1,
+            idProvider: 1
+          }).then((response) => {
+          this.color = 'success'
+          this.text = 'Produto cadastrado com sucesso!'
+          this.snackbar = true
+          this.$refs.form.reset()
+          this.dataValidade = ''
+        }).catch(() => {
+          this.color = 'error'
+          this.text = 'Erro ao cadastrar produto!'
+          this.snackbar = true
+        })
+      }
     },
     formatDate (date) {
       if (!date) {
@@ -114,6 +151,17 @@ export default {
     }
   },
   created () {
+    if (localStorage.itemToEdit) {
+      this.titulo = 'Editar Produto'
+      this.editProduct = JSON.parse(window.localStorage.getItem('itemToEdit'))
+      this.descricao = this.editProduct.nome
+      this.codBarras = this.editProduct.codigoBarra
+      this.precoCompra = this.editProduct.precoCompra
+      this.precoVenda = this.editProduct.precoVenda
+      this.desconto = this.editProduct.desconto
+      this.icms = this.editProduct.icms
+    }
+
     let today = new Date()
     let dd = today.getDate()
     let mm = today.getMonth() + 1

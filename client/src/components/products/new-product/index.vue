@@ -1,6 +1,6 @@
 <template>
   <div class="newProducts-container">
-    <h1>Novo Produto</h1>
+    <h1>{{ titulo }}</h1>
     <v-form v-model="valid" ref="form" lazy-validation>
         <v-text-field
           label="Descrição do Produto"
@@ -85,7 +85,7 @@
             :disabled="!valid"
             color="primary"
           >
-            Cadastrar
+            SALVAR
           </v-btn>
           <v-btn @click.native="clear()">Limpar</v-btn>
           <v-btn @click.native="cancelar()">VOLTAR</v-btn>
