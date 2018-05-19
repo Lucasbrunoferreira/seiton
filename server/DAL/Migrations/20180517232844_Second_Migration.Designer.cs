@@ -11,9 +11,10 @@ using System;
 namespace DAL.Migrations
 {
     [DbContext(typeof(BancoDeDados.BancoDeDados))]
-    partial class BancoDeDadosModelSnapshot : ModelSnapshot
+    [Migration("20180517232844_Second_Migration")]
+    partial class Second_Migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
