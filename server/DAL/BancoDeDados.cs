@@ -41,7 +41,7 @@ namespace BancoDeDados
             "port=3300;" +
             "userid=root;" +
             "password=root; " +
-            "database=seiton;");
+            "database=seitonserver;");
         }
     }
 }

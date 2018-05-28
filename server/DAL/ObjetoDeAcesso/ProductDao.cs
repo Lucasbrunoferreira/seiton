@@ -51,7 +51,7 @@ namespace BancoDeDados.ObjetoDeAcesso
 
                 return bancoDeDados
                     .Product
-                    .Where(x => x.Estoque <= quantidade)
+                    .Where(x => x.Estoque <= quantidade && x.Estoque > 50)
                     .Count();
 
             }

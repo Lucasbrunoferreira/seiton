@@ -24,11 +24,11 @@ namespace DAL.Models
         public DateTime DataCadastro { get; set; }
         [Required]
         public DateTime DataEntrada { get; set; }
-        public double PrecoCompra { get; set; }
+        public float PrecoCompra { get; set; }
         [Required]
-        public double PrecoVenda { get; set; }
-        public decimal Desconto { get; set; }
-        public decimal Icms { get; set; }
+        public float PrecoVenda { get; set; }
+        public float Desconto { get; set; }
+        public float Icms { get; set; }
         [Required, ForeignKey("Line")]
         public int IdLine { get; set; }
         public virtual Line Line { get; set; }
