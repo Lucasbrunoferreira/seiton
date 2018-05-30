@@ -7,12 +7,12 @@
       <div class="login-form">
         <form action="#">
           <div class="login-input">
-            <img src="/static/assets/icons/user.png">
+            <img src="/static/assets/icons/user.svg">
             <input required type="text" placeholder="usuario" class="valid-input">
           </div>
 
           <div class="login-input">
-            <img src="/static/assets/icons/password.png">
+            <img src="/static/assets/icons/password.svg">
             <input required type="password" placeholder="senha" class="valid-input">
           </div>
           <button type="submit">login</button>
