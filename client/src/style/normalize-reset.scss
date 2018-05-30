@@ -1,3 +1,9 @@
+@font-face { font-family: Raleway; src: url('/static/assets/fonts/Raleway-Light.ttf'); }
+
+* { font-family: Raleway }
+
+
+
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -59,7 +65,6 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -107,7 +112,6 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -166,7 +170,6 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
   /* 1 */
   font-size: 100%;
   /* 1 */
@@ -328,7 +331,6 @@ textarea {
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   /* 1 */
-  font: inherit;
   /* 2 */
 }
 
@@ -460,7 +462,6 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
