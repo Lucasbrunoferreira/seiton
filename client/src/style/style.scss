@@ -1,11 +1,18 @@
 $primary: #6BD8D1;
-$secundary: #21212177;
+$secundary: #29272777;
 $dark: black;
 $light: #fff;
+
+input.valid-input { background-color: $secundary; color: $light; margin: 0 .25rem; min-width: 125px; border: 1px solid $dark; border-left: 3px solid; border-radius: 5px; transition: border-color .5s ease-out;
+    &:required { border-left-color: #03af03; }
+    &:invalid { border-left-color: $primary; }
+    &::-webkit-input-placeholder { padding: 4px; }
+    &:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }
+}
 
 $border1: 1px red solid;
 $border2: 1px green solid;
 $border3: 1px blue solid;
 
-
 @import './login.scss';
+@import './normalize-reset.scss'

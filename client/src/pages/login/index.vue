@@ -5,17 +5,17 @@
         <img src="/static/assets/images/logo.png">
       </div>
       <div class="login-form">
-        <form action="">
+        <form action="#">
           <div class="login-input">
             <img src="/static/assets/icons/user.png">
-            <input type="text" placeholder="usuario">
+            <input required type="text" placeholder="usuario" class="valid-input">
           </div>
 
           <div class="login-input">
             <img src="/static/assets/icons/password.png">
-            <input type="password" placeholder="senha">
+            <input required type="password" placeholder="senha" class="valid-input">
           </div>
-          <button>login</button>
+          <button type="submit">login</button>
         </form>
       </div>
 
@@ -25,7 +25,3 @@
 </template>
 
 <script src="./scripts"></script>
-
-<style lang="scss">
-    @import '../../style/style.scss';
-</style>

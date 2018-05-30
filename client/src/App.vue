@@ -9,5 +9,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import './style/normalize-reset.scss';
+  @import './style/style.scss';
 </style>
