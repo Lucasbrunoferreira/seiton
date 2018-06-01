@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using App.BLL;
+using App.Models;
 using DAL.ModelView;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -145,6 +146,38 @@ namespace App.Controllers
                 var productBll = new ProductBll();
                 var listaDeProduct = productBll.ObterTodos();
                 return Json(listaDeProduct); //Recurso Encontrado mesmo que estege nulo
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                return StatusCode(404, new { Erro = ex.Message }); //Recurso não Encontrado
+
+            }
+
+        }
+
+        /// <summary>
+        ///  Essa rota é responsável por retornar os Products atravez da data passa pelo parâmetro
+        /// </summary>
+        /// <param name="recuperaProdutoCadastrado">Os dados necessarios para buscar os Products</param>
+        /// <response code="201"> Sucesso ao buscar um ProducSale</response>
+        /// <response code="404"> Erro ao buscar um ProducSale</response>
+        /// <returns>retorna um novo Client</returns>
+
+        [HttpPost]
+        [Route("retornarPorData")]
+        public IActionResult PostComData([FromBody] RecuperaVenda recuperaProdutoCadastrado)
+        {
+
+            try
+            {
+
+                var productBll = new ProductBll();
+                var product = productBll.RetornarPorData(recuperaProdutoCadastrado.dataVenda);
+
+                return Json(product); //Recurso Encontrado mesmo que estege nulo;
+
             }
             catch (Exception ex)
             {

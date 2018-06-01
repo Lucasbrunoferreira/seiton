@@ -50,6 +50,15 @@ namespace App.BLL
 
         }
 
+        public List<Product> RetornarPorData(DateTime data)
+        {
+
+            var productDao = new ProductDao();
+
+            return productDao.RetornarPorData(data);
+
+        }
+
         public void Delete(int id)
         {
 
