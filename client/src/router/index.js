@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import { LoginPage } from '../pages'
+import { LoginPage, HomePage } from '../pages'
 
 Vue.use(Router)
 
@@ -10,8 +10,13 @@ export default new Router({
     { path: '/', redirect: '/login' },
     {
       path: '/login',
-      name: 'LoginPage',
+      name: 'Pagina de Login',
       component: LoginPage
+    },
+    {
+      path: '/home',
+      name: 'Pagina Inicial',
+      component: HomePage
     }
   ]
 })

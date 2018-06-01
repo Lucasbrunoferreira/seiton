@@ -5,17 +5,17 @@
         <img src="/static/assets/images/logo.png">
       </div>
       <div class="login-form">
-        <form action="#">
+        <form v-on:submit.prevent>
           <div class="login-input">
             <img src="/static/assets/icons/user.svg">
-            <input required type="text" placeholder="usuario" class="valid-input">
+            <input v-model="usuario" required type="text" placeholder="usuario" class="valid-input">
           </div>
 
           <div class="login-input">
             <img src="/static/assets/icons/password.svg">
-            <input required type="password" placeholder="senha" class="valid-input">
+            <input v-model="senha" required type="password" placeholder="senha" class="valid-input">
           </div>
-          <button type="submit">login</button>
+          <button @click="login()" type="submit">login</button>
         </form>
       </div>
 

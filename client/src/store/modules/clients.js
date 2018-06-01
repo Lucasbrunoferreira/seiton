@@ -1,7 +1,5 @@
 const state = {
-  all: [{
-    name: 'Lucas'
-  }]
+  clients: {}
 }
 
 const getters = {
