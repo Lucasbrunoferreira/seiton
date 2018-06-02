@@ -23,11 +23,29 @@ namespace App.BLL
 
         }
 
+        public List<ProductSale> RetornarPorData(DateTime data)
+        {
+
+            var productSaleDao = new ProductSaleDao();
+
+            return productSaleDao.RetornarPorData(data);
+
+        }
+
+        public List<ProductSale> RetornarPorDataAtual(DateTime dataAtual)
+        {
+
+            var productSaleDao = new ProductSaleDao();
+
+            return productSaleDao.RetornarPorDataAtual(dataAtual);
+
+        }
+
         public ProductSale ObterPorId(int id)
         {
 
             var productSaleDao = new ProductSaleDao();
-            return productSaleDao.obeterPorId(id);
+            return productSaleDao.ObeterPorId(id);
 
         }
 
@@ -43,7 +61,7 @@ namespace App.BLL
         {
 
             var productSaleDao = new ProductSaleDao();
-            var productSale = productSaleDao.obeterPorId(id);
+            var productSale = productSaleDao.ObeterPorId(id);
 
             var productSaleAt = PreparaProductSale(productSaleModelView, productSale);
 
@@ -90,10 +108,6 @@ namespace App.BLL
             return productSale1;
 
         }
-
-
-
-
 
 
     }

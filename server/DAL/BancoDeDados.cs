@@ -17,6 +17,7 @@ namespace BancoDeDados
         public DbSet<Sale> Sale { get; set; }
         public DbSet<Client> Client { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<ProductSale> ProductSale { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -72,6 +72,20 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
+           public List<Product> RetornarPorData(DateTime data)
+           {
+                using (var bancoDeDados = new BancoDeDados())
+                {
+
+                    return bancoDeDados
+                        .Product
+                        .Where(x => x.DataCadastro.Equals(data))
+                        .ToList();
+                        
+                }
+
+           }
+
         public void Deletar(int id)
         {
 
