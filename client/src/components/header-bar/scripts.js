@@ -16,8 +16,8 @@ export default {
   },
   mounted: function () {
     let page = this.$router.history.current.name
-    this.userName = this.getterAccount.currentUser.nome
-    this.userSector = this.getterCurrentSector.currentSector.nome
+    this.userName = this.getterAccount.nome
+    this.userSector = this.getterCurrentSector.nome
     if (page !== 'Pagina Inicial') {
       this.currentPage = page
     }

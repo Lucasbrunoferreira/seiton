@@ -4,12 +4,13 @@ export const GET_ALL_SECTORS = 'GET_ALL_SECTORS'
 export const GET_CURRENT_SECTOR = 'GET_CURRENT_SECTOR'
 
 const state = {
-  sectors: {}
+  sectors: {},
+  currentSector: {}
 }
 
 const getters = {
   getterAllSectors: (state) => state.sectors,
-  getterCurrentSector: (state) => state.sectors
+  getterCurrentSector: (state) => state.currentSector
 }
 
 const mutations = {
@@ -17,18 +18,15 @@ const mutations = {
     state.sectors = value
   },
   [GET_CURRENT_SECTOR] (state, value) {
-    state.sectors = value
+    state.currentSector = value
   }
-
 }
 
 const actions = {
   actionGetAllSectors ({ commit }, response) {
     return sectorApi.getAllSectors()
       .then((response) => {
-        commit(GET_ALL_SECTORS, {
-          'allSectors': (response.data)
-        })
+        commit(GET_ALL_SECTORS, response.data)
         return Promise.resolve(response)
       })
       .catch((e) => {
@@ -38,9 +36,7 @@ const actions = {
   actionGetCurrentSector ({ commit }, params) {
     return sectorApi.getCurrentSector(params.idSector)
       .then((response) => {
-        commit(GET_CURRENT_SECTOR, {
-          'currentSector': (response.data)
-        })
+        commit(GET_CURRENT_SECTOR, response.data)
         return Promise.resolve(response)
       })
       .catch((e) => {

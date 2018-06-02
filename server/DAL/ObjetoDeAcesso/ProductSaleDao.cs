@@ -23,17 +23,46 @@ namespace BancoDeDados.ObjetoDeAcesso
         }
 
 
-        public ProductSale obeterPorId(int id)
+        public ProductSale ObeterPorId(int id)
         {
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                return null;// bancoDeDados.ProductSale.Find(id);
+                return null; //bancoDeDados.ProductSale.Find(id);
 
             }
 
         }
 
+        public List<ProductSale> RetornarPorData(DateTime data)
+        {
+
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados
+                    .ProductSale
+                    .Where(x => x.SaleDate.Equals(data))
+                    .ToList();
+
+            }
+
+        }
+
+        public List<ProductSale> RetornarPorDataAtual(DateTime dataAtual)
+        {
+
+            using (var bancoDeDados = new BancoDeDados())
+            {
+
+                return bancoDeDados
+                    .ProductSale
+                    .Where(x => x.SaleDate.Equals(dataAtual))
+                    .ToList();
+
+            }
+
+        }
 
         public void Deletar(int id)
         {
@@ -41,7 +70,7 @@ namespace BancoDeDados.ObjetoDeAcesso
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                var productSale = obeterPorId(id);
+                var productSale = ObeterPorId(id);
 
                // bancoDeDados.ProductSale.Remove(productSale);
                 bancoDeDados.SaveChanges();
@@ -70,7 +99,7 @@ namespace BancoDeDados.ObjetoDeAcesso
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                return null; // eDados.ProductSale.ToList();
+                return null; // bancoDeDados.ProductSale.ToList();
 
             }
 

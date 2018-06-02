@@ -11,7 +11,7 @@ div.login-page { height: 100vh; display: flex; align-items: center; justify-cont
       }
 
        button { background-color: $secundary; border: none; border-radius: 10%; height: 35px; width: 90px; margin: 5px 0px 0px 75px;
-        &:hover { background-color: $primary; color: $dark; cursor: pointer; }
+        &:hover { background-color: $primary; color: $dark; }
       }
     }
 

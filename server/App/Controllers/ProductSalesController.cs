@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using App.BLL;
+using App.Models;
 using DAL.ModelView;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -99,7 +100,70 @@ namespace App.Controllers
             {
 
                 Console.WriteLine(ex.Message);
-                return StatusCode(404); //Recurso não Encontrado
+                return StatusCode(404, new {Erro = ex.Message}); //Recurso não Encontrado
+
+            }
+
+        }
+
+        /// <summary>
+        ///  Essa rota é responsável por retornar os ProductSales atravez da data passa pelo parâmetro
+        /// </summary>
+        /// <param name="recuperaVenda">Os dados necessarios para buscar os ProducSales</param>
+        /// <response code="201"> Sucesso ao buscar um ProducSale</response>
+        /// <response code="404"> Erro ao buscar um ProducSale</response>
+        /// <returns>retorna um novo Client</returns>
+
+        [HttpPost]
+        [Route("retornarPorData")]
+        public IActionResult PostComData([FromBody] RecuperaVenda recuperaVenda)
+        {
+
+            try
+            {
+
+                var productSaleBll = new ProductSaleBll();
+                var productSale = productSaleBll.RetornarPorData(recuperaVenda.dataVenda);
+
+                return Json(productSale); //Recurso Encontrado mesmo que estege nulo;
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                return StatusCode(404, new { Erro = ex.Message }); //Recurso não Encontrado
+
+            }
+
+        }
+
+        /// <summary>
+        ///  Essa rota é responsável por retornar os ProductSales atravez da data atual
+        /// </summary>
+        /// <response code="201"> Sucesso ao buscar um ProducSale</response>
+        /// <response code="404"> Erro ao buscar um ProducSale</response>
+        /// <returns>retorna um novo Client</returns>
+
+        [HttpPost]
+        [Route("retornarPorDataAtual")]
+        public IActionResult PostComDataAtual()
+        {
+
+            try
+            {
+
+                var productSaleBll = new ProductSaleBll();
+                var productSale = productSaleBll.RetornarPorDataAtual(DateTime.Today);
+
+                return Json(productSale); //Recurso Encontrado mesmo que estege nulo;
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                return StatusCode(404, new { Erro = ex.Message }); //Recurso não Encontrado
 
             }
 

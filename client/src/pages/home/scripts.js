@@ -20,11 +20,14 @@ export default {
     ])
   },
   mounted: function () {
-    this.actionGetCurrentSector(this.getterAccount.currentUser)
+    this.actionGetCurrentSector(this.getterAccount)
+    this.actionGetAllSectors()
   },
   methods: {
     ...mapActions([
-      'actionGetCurrentSector'
+      'actionGetCurrentSector',
+      'actionGetAllSectors'
+
     ])
   }
 }
