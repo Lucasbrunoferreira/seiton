@@ -22,12 +22,17 @@ export default {
   mounted: function () {
     this.actionGetCurrentSector(this.getterAccount)
     this.actionGetAllSectors()
+    this.actionGetAllProducts()
   },
   methods: {
     ...mapActions([
       'actionGetCurrentSector',
-      'actionGetAllSectors'
+      'actionGetAllSectors',
+      'actionGetAllProducts'
 
-    ])
+    ]),
+    toPage (route) {
+      this.$router.push(route)
+    }
   }
 }

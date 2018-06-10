@@ -1,0 +1,8 @@
+section.products-page { min-height: 100vh; background-color: $back;
+  section.products-wrapper { display: flex; flex-wrap: wrap; justify-content: space-evenly;
+    
+    div.content-products { height: 600px; }
+
+    div.info-products { border: $border2; width: 550px; }
+  }
+}
