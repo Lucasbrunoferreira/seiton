@@ -1,8 +1,10 @@
 $primary: #6BD8D1;
-$secundary: #29272777;
-$back: #212121;
-$dark: #000;
+$secundary: #141d25;
+$back: #182028;
+$dark: #09141f;
 $light: #fff;
+
+.hidden { display: none }
 
 input.valid-input { padding-left: 5px; background-color: $secundary; color: $light; margin: 0 .25rem; min-width: 125px; border: 1px solid $dark; border-left: 3px solid; border-radius: 5px; transition: border-color .5s ease-out;
     &:required { border-left-color: #03af03; }
@@ -10,6 +12,18 @@ input.valid-input { padding-left: 5px; background-color: $secundary; color: $lig
     &:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }
     &::-webkit-input-placeholder { padding: 5px; }
 }
+
+button.confirm { width: 70px; height: 40px; border: 2px solid #026b22d0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
+      &:hover { background: #026b22d0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
+    }
+
+button.cancel { width: 70px; height: 40px; border: 2px solid #6b0202d0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
+      &:hover { background: #6b0202d0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
+    }
+
+button.close { width: 70px; height: 40px; border: 1px solid #dbdbdbd0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
+      &:hover { color: $dark; background: #dbdbdbd0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
+    }
 
 $border1: 1px red solid;
 $border2: 1px green solid;

@@ -1,6 +1,6 @@
-div.login-page { height: 100vh; display: flex; align-items: center; justify-content: center; background-color: $dark;
+div.login-page { height: 100vh; display: flex; align-items: center; justify-content: center; background-color: $back;
 
-  section.login-container { display: flex; background-color: $secundary; width: 50%; height: 380px; border-radius: 1.5%; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099;
+  section.login-container { display: flex; background-color: $dark; width: 50%; height: 380px; border-radius: 1.5%; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099;
     div.logo { width: 50%; display: flex; align-items: center; justify-content: center; margin-left: 50px;
       img { height: 100px; }
     }

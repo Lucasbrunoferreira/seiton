@@ -32,7 +32,7 @@ export default {
         width: 630,
         title: 'Compra/Venda Produto',
         colors: ['#6BD8D1', '#164d49'],
-        backgroundColor: '#212121',
+        backgroundColor: '#182028',
         hAxis: {
           title: 'Year',
           minValue: '2004',

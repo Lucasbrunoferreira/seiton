@@ -32,7 +32,7 @@ export default {
         width: 630,
         title: 'Vendas x Qtd - Ultimos 4 meses',
         colors: ['#6BD8D1', '#164d49'],
-        backgroundColor: '#212121',
+        backgroundColor: '#182028',
         hAxis: {
           title: 'Ano',
           minValue: '2004',

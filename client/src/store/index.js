@@ -5,6 +5,7 @@ import client from './modules/client'
 import account from './modules/account'
 import sector from './modules/sector'
 import product from './modules/product'
+import lines from './modules/lines'
 
 Vue.use(Vuex)
 
@@ -13,8 +14,8 @@ export default new Vuex.Store({
     client,
     account,
     sector,
-    product
-
+    product,
+    lines
   },
   plugins: [createPersistedState()]
 })

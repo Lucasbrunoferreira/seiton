@@ -4,5 +4,9 @@ import axios from 'axios'
 export default {
   getAllProducts () {
     return axios.get(`${Const.PRODUCTS}`)
+  },
+  deleteProduct (idProduct) {
+    return axios.delete(`${Const.PRODUCTS}/${idProduct}`)
   }
+
 }

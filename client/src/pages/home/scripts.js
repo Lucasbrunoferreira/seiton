@@ -23,13 +23,14 @@ export default {
     this.actionGetCurrentSector(this.getterAccount)
     this.actionGetAllSectors()
     this.actionGetAllProducts()
+    this.actionGetAllLines()
   },
   methods: {
     ...mapActions([
       'actionGetCurrentSector',
       'actionGetAllSectors',
-      'actionGetAllProducts'
-
+      'actionGetAllProducts',
+      'actionGetAllLines'
     ]),
     toPage (route) {
       this.$router.push(route)
