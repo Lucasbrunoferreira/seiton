@@ -17,15 +17,17 @@ ul.list-products { display: flex; flex-direction: column; align-items: center;
   div.list { width: 400px; max-height: 450px; overflow-y: auto; display: flex; flex-direction: column; align-items: center;
     li { margin-top: 15px; display: flex; background-color: $secundary; width: 350px; height: 50px; box-shadow: #182028 3px; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099;
       
-      span.critical { width: 4px; background-color: #ff00002d; }
-      span.warning { width: 4px; background-color: #ffe6004f; }
-      span.normal { width: 4px; background-color: #04be2357; }
+      span.critical { width: 4px; background-color: #5a0000;  }
+      span.warning { width: 4px; background-color: #837710; }
+      span.normal { width: 4px; background-color: #085e16; }
       
       div.info { display: flex; flex-direction: column; justify-content: space-evenly; margin: 0px 0px 0px 15px;
         &:hover { cursor: pointer }
         span.product-name { width: 230px; text-overflow: ellipsis; overflow: hidden; }
         span.value { display: flex; align-items: center; font-family: 'Segoe UI'; font-size: 15px; }
       }
+
+      span.estoque { display: flex; justify-content: center; align-items: center; width: 30%; cursor: pointer; }
 
       div.btns-manager { display: flex; flex-direction: row;
         span { display: flex; align-items: center; font-family:  'Segoe UI'; width: 35px; cursor: pointer; }
@@ -41,6 +43,7 @@ ul.list-products { display: flex; flex-direction: column; align-items: center;
       }
     }
   }
+  
 }
 
 div.sweet-modal { 

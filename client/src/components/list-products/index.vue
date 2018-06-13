@@ -33,8 +33,9 @@
             <span class="value">R$ {{ product.precoVenda }}</span>
           </div>
 
-          <div class="btns-manager">
-            <span @click="showInfo(product)"> {{ product.estoque }} </span>
+          <span class="estoque" @click="showInfo(product)"> {{ product.estoque }} </span>
+
+          <div class="btns-manager" v-if="moreInfo == product.idProduct">
 
             <button @click="openDelete(product.idProduct)">
               <img src="/static/assets/icons/delete.svg">

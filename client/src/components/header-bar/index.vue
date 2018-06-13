@@ -9,7 +9,10 @@
       </div>
     </section>
 
-    <strong class="page-title">{{ currentPage }}</strong>
+    <strong class="page-title" v-if="this.currentPage !== 'Pagina Inicial'">
+      <img  class="return" src="/static/assets/icons/return.svg" @click="returnHome()">
+      {{ currentPage }}
+    </strong>
 
     <section class="page-info">
       <span class="">{{ userSector }}</span>

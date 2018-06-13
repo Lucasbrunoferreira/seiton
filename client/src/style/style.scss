@@ -4,6 +4,14 @@ $back: #182028;
 $dark: #09141f;
 $light: #fff;
 
+svg {
+    g {
+        text {
+            fill: #a3a3a3 !important;  
+        }
+    }
+}
+
 .hidden { display: none }
 
 input.valid-input { padding-left: 5px; background-color: $secundary; color: $light; margin: 0 .25rem; min-width: 125px; border: 1px solid $dark; border-left: 3px solid; border-radius: 5px; transition: border-color .5s ease-out;
@@ -25,9 +33,9 @@ button.close { width: 70px; height: 40px; border: 1px solid #dbdbdbd0; backgroun
       &:hover { color: $dark; background: #dbdbdbd0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
     }
 
-$border1: 1px red solid;
-$border2: 1px green solid;
-$border3: 1px blue solid;
+$b1: 1px red solid;
+$b2: 1px green solid;
+$b3: 1px blue solid;
 
 @import './login.scss';
 @import './header.scss';

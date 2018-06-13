@@ -15,12 +15,9 @@ export default {
     ])
   },
   mounted: function () {
-    let page = this.$router.history.current.name
+    this.currentPage = this.$router.history.current.name
     this.userName = this.getterAccount.nome
     this.userSector = this.getterCurrentSector.nome
-    if (page !== 'Pagina Inicial') {
-      this.currentPage = page
-    }
   },
   methods: {
     ...mapMutations([
@@ -31,6 +28,9 @@ export default {
         this.LOGOUT_SERVICE()
         this.$router.push('/login')
       }, 500)
+    },
+    returnHome () {
+      this.$router.push('/home')
     }
   }
 }
