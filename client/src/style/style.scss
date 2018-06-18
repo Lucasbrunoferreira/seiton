@@ -14,6 +14,7 @@ svg {
 
 .hidden { display: none }
 
+
 input.valid-input { padding-left: 5px; background-color: $secundary; color: $light; margin: 0 .25rem; min-width: 125px; border: 1px solid $dark; border-left: 3px solid; border-radius: 5px; transition: border-color .5s ease-out;
     &:required { border-left-color: #03af03; }
     &:invalid { border-left-color: $primary; }
@@ -42,4 +43,6 @@ $b3: 1px blue solid;
 @import './home.scss';
 @import './list-products.scss';
 @import './products.scss';
+@import './clients.scss';
+@import './providers.scss';
 @import './normalize.scss';

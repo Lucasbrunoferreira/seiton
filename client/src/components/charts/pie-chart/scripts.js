@@ -12,9 +12,9 @@ export default {
         'label': 'Total'
       }],
       rows: [
-        ['Normal', 5, 5],
-        ['Atenção ', 3, 3],
-        ['Crítico', 2, 2]
+        ['Normal', 14, 14],
+        ['Atenção ', 8, 8],
+        ['Crítico', 6, 6]
       ],
       options: {
         legend: {

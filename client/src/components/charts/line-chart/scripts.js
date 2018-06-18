@@ -3,7 +3,7 @@ export default {
     return {
       columns: [{
         'type': 'string',
-        'label': 'Year'
+        'label': 'Ano'
       }, {
         'type': 'number',
         'label': 'Vendas'

@@ -34,7 +34,7 @@ export default {
         colors: ['#6BD8D1', '#164d49'],
         backgroundColor: '#182028',
         hAxis: {
-          title: 'Year',
+          title: 'Ano',
           minValue: '2004',
           maxValue: '2007',
           textStyle: {
