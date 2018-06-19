@@ -1,7 +1,8 @@
 import LoginPage from './login'
 import HomePage from './home'
-import ProdutosPage from './produtos'
+import ProductsPage from './products'
 import ClientsPage from './clients'
 import ProvidersPage from './providers'
+import ContribuitorsPage from './contribuitors'
 
-export { LoginPage, HomePage, ProdutosPage, ClientsPage, ProvidersPage }
+export { LoginPage, HomePage, ProductsPage, ClientsPage, ProvidersPage, ContribuitorsPage }

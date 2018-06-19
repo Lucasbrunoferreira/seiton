@@ -20,7 +20,7 @@
           <span>Fornecedores</span>
         </button>
       </li>
-      <li>
+      <li v-if="this.getterAccount.idSector === 1">
         <button @click="toPage('/colaboradores')">
           <img src="/static/assets/icons/colaboradores.svg">
           <span>Colaboradores</span>

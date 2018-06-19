@@ -1,4 +1,4 @@
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -7,9 +7,16 @@ export default {
       senha: null
     }
   },
+  computed: {
+    ...mapGetters([
+      'getterAccount'
+    ])
+  },
   methods: {
     ...mapActions([
-      'actionLogin'
+      'actionLogin',
+      'actionGetCurrentSector',
+      'actionGetAllSectors'
     ]),
     login () {
       if (this.usuario && this.senha) {
@@ -21,6 +28,8 @@ export default {
               position: 'top-right',
               duration: 2000
             })
+            this.actionGetCurrentSector(this.getterAccount)
+            this.actionGetAllSectors()
             setTimeout(() => {
               this.$router.push('/home')
             }, 3000)

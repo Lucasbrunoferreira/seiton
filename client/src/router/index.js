@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import { LoginPage, HomePage, ProdutosPage, ClientsPage, ProvidersPage } from '../pages'
+import { LoginPage, HomePage, ProductsPage, ClientsPage, ProvidersPage, ContribuitorsPage } from '../pages'
 
 Vue.use(Router)
 
@@ -21,7 +21,7 @@ export default new Router({
     {
       path: '/produtos',
       name: 'Produtos',
-      component: ProdutosPage
+      component: ProductsPage
     },
     {
       path: '/clientes',
@@ -32,6 +32,11 @@ export default new Router({
       path: '/fornecedores',
       name: 'Fornecedores',
       component: ProvidersPage
+    },
+    {
+      path: '/colaboradores',
+      name: 'Colaboradores',
+      component: ContribuitorsPage
     }
   ]
 })
