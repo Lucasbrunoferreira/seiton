@@ -7,6 +7,11 @@ export default {
   },
   deleteProduct (idProduct) {
     return axios.delete(`${Const.PRODUCTS}/${idProduct}`)
+  },
+  createProduct (product) {
+    return axios.post(`${Const.PRODUCTS}`, {
+      product
+    })
   }
 
 }

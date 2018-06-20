@@ -18,6 +18,22 @@ section.products-page { min-height: 100vh; background-color: $back;
       &:hover { background: $secundary; animation: shake .4s infinite linear both; border: 1px $light solid; transition: border .4s ease-in; }
       img { height: 40%; }
     }
+
+    .newProduct-modal {
+      .sweet-modal { width: 400px; }
+
+      .sweet-content { width: 300px;
+        h3 { font-size: 22px; margin-bottom: 25px; }
+
+        section.wrapper { display: flex; flex-direction: column; align-items: flex-end;
+          div { margin-bottom: 15px;
+            label { font-size: 13px; }
+            input { width: 170px; }
+            select { width: 178px; }
+          }
+        }
+      }
+    }
   }
 }
 

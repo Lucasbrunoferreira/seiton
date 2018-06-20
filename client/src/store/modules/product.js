@@ -2,6 +2,7 @@ import productsApi from '../../api/products.Api'
 
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 export const DELETE_PRODUCT = 'DELETE_PRODUCT'
+export const ADD_PRODUCT = 'ADD_PRODUCT'
 
 const state = {
   products: {}
@@ -17,8 +18,10 @@ const mutations = {
   },
   [DELETE_PRODUCT] (state, idProduct) {
     let i = state.products.map(item => item.idProduct).indexOf(idProduct)
-    console.log(i)
     state.products.splice(i, 1)
+  },
+  [ADD_PRODUCT] (state, product) {
+    state.all = state.products.concat(product)
   }
 }
 
@@ -38,6 +41,18 @@ const actions = {
       .then((response) => {
         console.log(response)
         commit(DELETE_PRODUCT, idProduct)
+        return Promise.resolve(response)
+      })
+      .catch((e) => {
+        return Promise.reject(e)
+      })
+  },
+  actionCreateProduct ({ commit }, params) {
+    console.log(params)
+    return productsApi.createProduct(params)
+      .then((response) => {
+        // commit(ADD_PRODUCT, response.data)
+        console.log(response)
         return Promise.resolve(response)
       })
       .catch((e) => {

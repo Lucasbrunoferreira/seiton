@@ -6,6 +6,7 @@ import account from './modules/account'
 import sector from './modules/sector'
 import product from './modules/product'
 import lines from './modules/lines'
+import providers from './modules/providers'
 
 Vue.use(Vuex)
 
@@ -15,7 +16,8 @@ export default new Vuex.Store({
     account,
     sector,
     product,
-    lines
+    lines,
+    providers
   },
   plugins: [createPersistedState()]
 })
