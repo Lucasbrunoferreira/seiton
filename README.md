@@ -9,7 +9,7 @@
   As constantes modificações que ocorreram nas últimas décadas, a instabilidade, os grandes avanços 
   tecnológicos, a crescente competitividade e a globalização são alguns dos fatores que vêm fazendo
   com que as empresas lutam por uma melhor posição e sobrevivência no mercado.
-  Com o grande crescimento do setor mercantil, hoje em dia se faz cada vez mais necessário o uso de 
+  Com o grande crescimento dos setores mercantil, hoje em dia se faz cada vez mais necessário o uso de 
   sistemas inteligentes. 
   Com isso criamos um sistema de controle de estoque, com ações automáticas, o sistema reconhece a 
   demanda de estoque dos produtos, notificando ou até mesmo efetuando pedido dos mesmo em caso de 
@@ -21,7 +21,7 @@
 
 ```bash
    * Desenvolver um sistema efetivo e de fácil uso.
-   * Facilitar a manutenção do estoque de produtos.
+   * Facilitar a manutenção em estoque de produtos.
    * Criar um controle de estoque capaz de contatar fornecedores.
    * Gerar relatórios para um controle de lucros.
    * Gerenciar dados para apresentação de pontos fortes e fracos.
