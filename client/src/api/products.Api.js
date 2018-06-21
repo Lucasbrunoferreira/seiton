@@ -9,9 +9,10 @@ export default {
     return axios.delete(`${Const.PRODUCTS}/${idProduct}`)
   },
   createProduct (product) {
-    return axios.post(`${Const.PRODUCTS}`, {
-      product
-    })
+    return axios.post(`${Const.PRODUCTS}`, product)
+  },
+  editProduct (product) {
+    return axios.put(`${Const.PRODUCTS}/${product.id}`, product)
   }
 
 }

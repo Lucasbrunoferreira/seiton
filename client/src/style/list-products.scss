@@ -46,6 +46,19 @@ ul.list-products { display: flex; flex-direction: column; align-items: center;
   
 }
 
+    div.edit { 
+    .sweet-modal { width: 400px; }
+      h3 { font-size: 22px; margin-bottom: 25px; }
+
+      section.wrapper { display: flex; flex-direction: column; align-items: flex-end;
+        div { margin-bottom: 15px;
+          label { font-size: 13px; }
+          input { width: 170px; }
+          select { width: 178px; }
+        }
+      }
+    }
+
 div.sweet-modal { 
   div.sweet-content-content {
     div.modal-btns { margin: 30px 0px -30px 0px; display: flex; justify-content: center;

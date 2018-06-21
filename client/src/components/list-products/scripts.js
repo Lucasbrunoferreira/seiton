@@ -8,11 +8,23 @@ export default {
   },
   data () {
     return {
+      idProduct: null,
+      productName: null,
+      productCod: null,
+      productLote: null,
+      productEst: null,
+      productValid: null,
+      productBuy: null,
+      productSell: null,
+      productDesc: null,
+      productICMS: null,
+      idLine: null,
+      idProvider: null,
       selectedProduct: null,
       filteredLine: null,
       moreInfo: null,
       search: '',
-      idLine: null,
+      prductLine: null,
       crt: false,
       war: false,
       ok: false
@@ -21,6 +33,7 @@ export default {
   computed: {
     ...mapGetters([
       'getterAllProducts',
+      'getterAllProviders',
       'getterAllLines'
 
     ]),
@@ -28,7 +41,7 @@ export default {
       var self = this
       var search = this.search
       var line = this.filteredLine
-      var selectedLine = this.idLine
+      var selectedLine = this.prductLine
       return this.getterAllProducts.filter(function (products) {
         if (line === 'Todos') {
           return products
@@ -45,7 +58,7 @@ export default {
   },
   watch: {
     filteredLine: function (line) {
-      this.idLine = parseInt(line.substring(0, 1))
+      this.prductLine = parseInt(line.substring(0, 1))
     }
   },
   mounted: function () {
@@ -56,11 +69,14 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'SET_FORMATTED_DATE'
+      'SET_FORMATTED_DATE',
+      'SET_SELECTED_PRODUCT'
     ]),
     ...mapActions([
       'actionDeleteProduct',
-      'actionGetIdLine'
+      'actionGetIdLine',
+      'actionEditProduct',
+      'actionGetAllProducts'
     ]),
 
     showInfo (item) {
@@ -94,6 +110,71 @@ export default {
     close: function () {
       this.$refs.delete.close()
       this.$refs.deletedError.close()
+      this.$refs.editProduct.close()
+    },
+
+    editProduct (product) {
+      this.productName = product.nome
+      this.productCod = product.codigoBarra
+      this.productLote = product.lote
+      this.productEst = product.estoque
+      this.productValid = product.dataValidade
+      this.productBuy = product.precoCompra
+      this.productSell = product.precoVenda
+      this.productDesc = product.desconto
+      this.productICMS = product.icms
+      this.idProduct = product.idProduct
+
+      this.$refs.editProduct.open()
+    },
+
+    clear () {
+      this.productName = ''
+      this.productCod = ''
+      this.productLote = ''
+      this.productEst = ''
+      this.productValid = ''
+      this.productBuy = ''
+      this.productSell = ''
+      this.productDesc = ''
+      this.productICMS = ''
+      this.idProduct = ''
+    },
+
+    salveProduct () {
+      let newProduct = {
+        id: this.idProduct,
+        statusProduct: true,
+        codigoBarra: this.productCod,
+        nome: this.productName,
+        estoque: parseInt(this.productEst),
+        lote: this.productLote,
+        dataValidade: moment(this.productValid).format(),
+        dataCadastro: moment().format(),
+        dataEntrada: moment().format(),
+        precoCompra: parseInt(this.productBuy),
+        precoVenda: parseInt(this.productSell),
+        desconto: parseInt(this.productDesc),
+        icms: parseInt(this.productICMS),
+        idLine: parseInt(this.idLine),
+        idProvider: parseInt(this.idProvider)
+      }
+      this.actionEditProduct(newProduct).then(() => {
+        this.$refs.editProduct.close()
+        this.clear()
+        this.$refs.editedSuccess.open()
+        this.actionGetAllProducts().then((result) => {
+          setTimeout(() => {
+            this.$refs.editedSuccess.close()
+          }, 2500)
+        })
+      }).catch(() => {
+        this.$refs.editProduct.close()
+        this.$refs.deletedError.open()
+        setTimeout(() => {
+          this.$refs.deletedError.close()
+        }, 2500)
+      })
     }
 
   }

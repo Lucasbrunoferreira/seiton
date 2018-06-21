@@ -1,9 +1,11 @@
 <template>
   <div class="login-page">
     <section class="login-container">
+
       <div class="logo">
         <img src="/static/assets/images/logo.png">
       </div>
+
       <div class="login-form">
         <form v-on:submit.prevent>
           <div class="login-input">

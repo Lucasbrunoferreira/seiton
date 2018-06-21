@@ -10,7 +10,7 @@ div.providers-page { min-height: 100vh; background-color: $back;
   section.providers-wrapper { display: flex;
     
     ul.providers-list { max-height: 450px; display: flex; justify-content: space-around; flex-wrap: wrap; overflow-y: scroll;
-      li { width: 300px; height: 200px; margin: 10px;
+      li { width: 300px; height: 200px; margin: 10px; cursor: pointer;
 
         div.provider-info { height: 45px; display: flex; align-items: center; background: $dark;
           span.name { width: 220px; margin: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -24,6 +24,12 @@ div.providers-page { min-height: 100vh; background-color: $back;
           }
 
         }
+          div.btns-manager { display: flex; flex-direction: row;
+            span { display: flex; align-items: center; font-family:  'Segoe UI'; width: 35px; cursor: pointer; }
+            button { background-color: #00000000; transition: background-color .4s ease-out; outline: none; border: none;
+              img { height: 18px; }
+            }
+          }
       }
     }
 
@@ -31,5 +37,21 @@ div.providers-page { min-height: 100vh; background-color: $back;
     button.new-product { position: fixed; bottom: 20px; left: 30px; background: $dark; border: 1px $dark solid; $hw: 70px; height: $hw; width: $hw; border-radius: 50%;  box-shadow: 0 1px 6px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out;
     &:hover { background: $secundary; animation: shake .4s infinite linear both; border: 1px $light solid; transition: border .4s ease-in; }
     img { height: 40%; }
+  }
+
+    .newProduct-modal {
+    .sweet-modal { width: 400px; }
+
+    .sweet-content { width: 300px;
+      h3 { font-size: 22px; margin-bottom: 25px; }
+
+      section.wrapper { display: flex; flex-direction: column; align-items: flex-end;
+        div { margin-bottom: 15px;
+          label { font-size: 13px; }
+          input { width: 170px; }
+          select { width: 178px; }
+        }
+      }
+    }
   }
 }

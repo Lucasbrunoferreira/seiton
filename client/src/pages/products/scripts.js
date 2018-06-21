@@ -39,35 +39,61 @@ export default {
   },
   methods: {
     ...mapActions([
-      'actionCreateProduct'
+      'actionCreateProduct',
+      'actionGetAllProducts'
     ]),
     openNewProduct () {
       this.$refs.newProduct.open()
     },
     close () {
       this.$refs.newProduct.close()
+      this.clear()
+    },
+    clear () {
+      this.productName = null
+      this.productCod = null
+      this.productLote = null
+      this.roductEst = null
+      this.roductValid = null
+      this.roductBuy = null
+      this.productSell = null
+      this.roductDesc = null
+      this.roductICMS = null
+      this.dLine = null
+      this.dProvider = null
     },
     createProduct () {
       let newProduct = {
         statusProduct: true,
         codigoBarra: this.productCod,
         nome: this.productName,
-        estoque: this.productEst,
+        estoque: parseInt(this.productEst),
         lote: this.productLote,
         dataValidade: moment(this.productValid).format(),
         dataCadastro: moment().format(),
         dataEntrada: moment().format(),
-        precoCompra: this.productBuy,
-        precoVenda: this.productSell,
-        desconto: this.productDesc,
-        icms: this.productICMS,
-        idLine: this.idLine,
-        idProvider: this.idProvider
+        precoCompra: parseInt(this.productBuy),
+        precoVenda: parseInt(this.productSell),
+        desconto: parseInt(this.productDesc),
+        icms: parseInt(this.productICMS),
+        idLine: parseInt(this.idLine),
+        idProvider: parseInt(this.idProvider)
       }
-      this.actionCreateProduct(newProduct).then((result) => {
-        console.log(result)
-      }).catch((err) => {
-        console.log(err)
+      this.actionCreateProduct(newProduct).then(() => {
+        this.$refs.newProduct.close()
+        this.clear()
+        this.$refs.createdSuccess.open()
+        this.actionGetAllProducts().then((result) => {
+          setTimeout(() => {
+            this.$refs.createdSuccess.close()
+          }, 2500)
+        })
+      }).catch(() => {
+        this.$refs.newProduct.close()
+        this.$refs.createError.open()
+        setTimeout(() => {
+          this.$refs.createError.close()
+        }, 2500)
       })
     }
   }

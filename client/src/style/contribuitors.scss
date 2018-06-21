@@ -7,8 +7,8 @@ div.contribuitors-page { min-height: 100vh; background-color: $back;
         img { height: 40px; }
       }
 
-      ul.admin-list, ul.supervisor-list, ul.atendance-list  { margin-top: 40px; display: flex;
-        li { display: flex; width: 250px;
+      ul.admin-list, ul.supervisor-list, ul.atendance-list  { margin-top: 40px; display: flex; flex-direction: column;
+        li { display: flex; width: 250px; margin-bottom: 15px;
           div.info { display: flex; flex-direction: column;  border: 1px solid $dark; background: $dark; border-radius: 10px; cursor: pointer;
             span { margin: 0px 0px 5px 15px;
               &:first-child { height: 30px; width: 270px; display: flex; align-items: center; }
@@ -22,6 +22,21 @@ div.contribuitors-page { min-height: 100vh; background-color: $back;
               img { height: 18px; }
             }
           }
+        }
+      }
+    }
+  }
+      .newProduct-modal {
+    .sweet-modal { width: 400px; }
+
+    .sweet-content { width: 300px;
+      h3 { font-size: 22px; margin-bottom: 25px; }
+
+      section.wrapper { display: flex; flex-direction: column; align-items: flex-end;
+        div { margin-bottom: 15px;
+          label { font-size: 13px; }
+          input { width: 170px; }
+          select { width: 178px; }
         }
       }
     }

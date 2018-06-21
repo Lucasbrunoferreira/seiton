@@ -5,8 +5,14 @@ export default {
   getAllProviders () {
     return axios.get(`${Const.PROVIDERS}`)
   },
-  deleteProvider (idProduct) {
-    return axios.delete(`${Const.PROVIDERS}/${idProduct}`)
+  deleteProvider (idProvider) {
+    return axios.delete(`${Const.PROVIDERS}/${idProvider}`)
+  },
+  createProvider (provider) {
+    return axios.post(`${Const.PROVIDERS}`, provider)
+  },
+  editProvider (provider) {
+    return axios.put(`${Const.PROVIDERS}/${provider.idProvider}`, provider)
   }
 
 }

@@ -32,7 +32,7 @@
         <img src="/static/assets/icons/add.svg">
       </button>
 
-      <sweet-modal overlay-theme="dark" modal-theme="dark" ref="newProduct" class="newProduct-modal">
+      <sweet-modal overlay-theme="dark" blocking modal-theme="dark" ref="newProduct" class="newProduct-modal">
         <h3>Criar novo Produto</h3>
         <section class="wrapper">
           <div>
@@ -99,6 +99,14 @@
           <button class="confirm" @click="createProduct()">Criar</button>
           <button class="cancel" @click="close()">Voltar</button>
         </div>
+    </sweet-modal>
+
+    <sweet-modal icon="success" hide-close-button blocking overlay-theme="dark" modal-theme="dark" ref="createdSuccess">
+      <span>O Produto foi criado com Sucesso!</span>
+    </sweet-modal>
+
+    <sweet-modal icon="warning" hide-close-button blocking overlay-theme="dark" modal-theme="dark" ref="createError">
+      <span>Houve algum erro durante o processo!</span>
     </sweet-modal>
     </section>
   </section>

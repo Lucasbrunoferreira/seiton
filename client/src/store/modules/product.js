@@ -3,13 +3,16 @@ import productsApi from '../../api/products.Api'
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'
 export const DELETE_PRODUCT = 'DELETE_PRODUCT'
 export const ADD_PRODUCT = 'ADD_PRODUCT'
+export const SET_SELECTED_PRODUCT = 'SET_SELECTED_PRODUCT'
+export const CLEAR_SELECTED_PRODUCT = 'CLEAR_SELECTED_PRODUCT'
 
 const state = {
   products: {}
 }
 
 const getters = {
-  getterAllProducts: (state) => state.products
+  getterAllProducts: (state) => state.products,
+  getterSelectedProduct: (state) => state.selectedProduct
 }
 
 const mutations = {
@@ -21,7 +24,7 @@ const mutations = {
     state.products.splice(i, 1)
   },
   [ADD_PRODUCT] (state, product) {
-    state.all = state.products.concat(product)
+    state.products = state.products.concat(product)
   }
 }
 
@@ -39,7 +42,6 @@ const actions = {
   actionDeleteProduct ({ commit }, idProduct) {
     return productsApi.deleteProduct(idProduct)
       .then((response) => {
-        console.log(response)
         commit(DELETE_PRODUCT, idProduct)
         return Promise.resolve(response)
       })
@@ -47,12 +49,18 @@ const actions = {
         return Promise.reject(e)
       })
   },
-  actionCreateProduct ({ commit }, params) {
-    console.log(params)
-    return productsApi.createProduct(params)
+  actionCreateProduct ({ commit }, product) {
+    return productsApi.createProduct(product)
       .then((response) => {
-        // commit(ADD_PRODUCT, response.data)
-        console.log(response)
+        return Promise.resolve(response)
+      })
+      .catch((e) => {
+        return Promise.reject(e)
+      })
+  },
+  actionEditProduct ({ commit }, product) {
+    return productsApi.editProduct(product)
+      .then((response) => {
         return Promise.resolve(response)
       })
       .catch((e) => {
