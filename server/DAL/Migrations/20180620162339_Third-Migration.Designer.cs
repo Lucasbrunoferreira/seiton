@@ -11,14 +11,29 @@ using System;
 namespace DAL.Migrations
 {
     [DbContext(typeof(BancoDeDados.BancoDeDados))]
-    partial class BancoDeDadosModelSnapshot : ModelSnapshot
+    [Migration("20180620162339_Third-Migration")]
+    partial class ThirdMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011");
+
+            modelBuilder.Entity("BancoDeDados.Models.Serie", b =>
+                {
+                    b.Property<int>("IdSerie")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired();
+
+                    b.HasKey("IdSerie");
+
+                    b.ToTable("Series");
+                });
 
             modelBuilder.Entity("DAL.Models.Client", b =>
                 {
@@ -201,8 +216,6 @@ namespace DAL.Migrations
                     b.Property<int>("IdClient");
 
                     b.Property<int>("IdContribuitor");
-
-                    b.Property<int>("IdProduct");
 
                     b.Property<int>("Quantidade");
 

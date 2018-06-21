@@ -15,6 +15,10 @@ namespace DAL.Models
         [Required]
         public DateTime DataVenda { get; set; }
 
+        [Required, ForeignKey("Product")]
+        public int IdProduct { get; set; }
+
+        public int Quantidade { get; set; }
         [Required, ForeignKey("Client")]
         public int IdClient { get; set; }
         public virtual Client Client { get; set; }

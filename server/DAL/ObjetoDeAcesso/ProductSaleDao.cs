@@ -15,7 +15,7 @@ namespace BancoDeDados.ObjetoDeAcesso
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                // bancoDeDados.ProductSale.Add(productSale);
+                bancoDeDados.ProductSale.Add(productSale);
                 bancoDeDados.SaveChanges();
 
             }
@@ -28,7 +28,7 @@ namespace BancoDeDados.ObjetoDeAcesso
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                return null; //bancoDeDados.ProductSale.Find(id);
+                return bancoDeDados.ProductSale.Find(id);
 
             }
 
@@ -72,7 +72,7 @@ namespace BancoDeDados.ObjetoDeAcesso
 
                 var productSale = ObeterPorId(id);
 
-               // bancoDeDados.ProductSale.Remove(productSale);
+                bancoDeDados.ProductSale.Remove(productSale);
                 bancoDeDados.SaveChanges();
 
             }
@@ -85,7 +85,7 @@ namespace BancoDeDados.ObjetoDeAcesso
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                // bancoDeDados.ProductSale.Update(productSale);
+                bancoDeDados.ProductSale.Update(productSale);
                 bancoDeDados.SaveChanges();
 
             }
@@ -99,7 +99,7 @@ namespace BancoDeDados.ObjetoDeAcesso
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                return null; // bancoDeDados.ProductSale.ToList();
+                return bancoDeDados.ProductSale.ToList();
 
             }
 

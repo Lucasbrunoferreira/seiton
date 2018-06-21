@@ -22,7 +22,7 @@ namespace BancoDeDados.ObjetoDeAcesso
 
         }
 
-        public Client obeterPorId(int id)
+        public Client ObeterPorId(int id)
         {
             using (var bancoDeDados = new BancoDeDados())
             {
@@ -50,7 +50,7 @@ namespace BancoDeDados.ObjetoDeAcesso
             using (var bancoDeDados = new BancoDeDados())
             {
 
-                var client = obeterPorId(id);
+                var client = ObeterPorId(id);
 
                 bancoDeDados.Client.Remove(client);
                 bancoDeDados.SaveChanges();

@@ -28,7 +28,7 @@ namespace App.BLL
         {
 
             var clientDao = new ClientDao();
-            return clientDao.obeterPorId(id);
+            return clientDao.ObeterPorId(id);
 
         }
 
@@ -46,7 +46,7 @@ namespace App.BLL
         {
 
             var clientDao = new ClientDao();
-            var client = clientDao.obeterPorId(id);
+            var client = clientDao.ObeterPorId(id);
 
             var clientAt = PreparaClient(clientModelView, client);
 

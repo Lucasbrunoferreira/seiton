@@ -84,12 +84,22 @@ namespace App.BLL
             {
                 throw new Exception("Informe o ID DO CONTRIBUIDOR.");
             }
+            else if(saleModelView.IdProduct < 0)
+            {
+                throw new Exception("Informe o ID DO PRODUTO.");
+            }
+            else if (saleModelView.Quantidade < 0)
+            {
+                throw new Exception("Informe a QUANTIDADE do PRODUTO");
+            }
             else
             {
                 sale1.TipoVenda = saleModelView.TipoVenda;
                 sale1.DataVenda = saleModelView.DataVenda;
                 sale1.IdClient = saleModelView.IdClient;
                 sale1.IdContribuitor = saleModelView.IdContribuitor;
+                sale1.IdProduct = saleModelView.IdProduct;
+                sale1.Quantidade = saleModelView.Quantidade;
             }
 
             return sale1;

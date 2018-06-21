@@ -11,6 +11,9 @@ namespace DAL.ModelView
         public int IdClient { get; set; }
         [Required]
         public int IdContribuitor { get; set; }
+        public int Quantidade { get; set; }
+        [Required]
+        public int IdProduct{ get; set; }
 
     }
 }

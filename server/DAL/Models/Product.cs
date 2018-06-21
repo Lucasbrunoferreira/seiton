@@ -39,5 +39,7 @@ namespace DAL.Models
 
         public ICollection<ProductSale> ProductSales { get; set; }
 
+        public ICollection<Sale> Sale { get; set; }
+
     }
 }

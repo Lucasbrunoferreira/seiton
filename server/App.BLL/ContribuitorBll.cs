@@ -35,7 +35,7 @@ namespace BLL
                 throw new Exception("USUÁRIO inexistente.");
             }
                
-            if(HashService.CheckPassword(senha, contribuitor.Senha))
+            else if(HashService.CheckPassword(senha, contribuitor.Senha))
             {
                 return contribuitor;
             }

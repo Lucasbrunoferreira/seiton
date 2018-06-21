@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using BancoDeDados.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +8,6 @@ namespace BancoDeDados
 {
     public class BancoDeDados : DbContext
     {
-        public DbSet<Serie> Series { get; set; }
         public DbSet<Line> Line { get; set; }
         public DbSet<Sector> Sector { get; set; }
         public DbSet<Provider> Provider { get; set; }

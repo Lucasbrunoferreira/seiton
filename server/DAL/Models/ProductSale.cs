@@ -11,13 +11,13 @@ namespace DAL.Models
     {
         [Required, ForeignKey("Sale")]
         public int IdSale { get; set; }
-        [JsonIgnore]
+        
         public virtual Sale Sale { get; set; }
 
 
         [Required, ForeignKey("Product")]
         public int IdProduct { get; set; }
-        [JsonIgnore]
+       
         public virtual Product Product { get; set; }
 
         [Required]
