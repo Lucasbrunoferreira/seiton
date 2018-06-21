@@ -1,0 +1,48 @@
+div.contribuitors-page { min-height: 100vh; background-color: $back;
+  div.wrapper { display: flex; justify-content: space-around;
+
+    section.admin, section.supervisor, section.atendance {display: flex; flex-direction: column; align-items: center;
+      div.title{ display: flex; align-items: center;
+        h3 { font-size: 18px; margin-left: 10px; }
+        img { height: 40px; }
+      }
+
+      ul.admin-list, ul.supervisor-list, ul.atendance-list  { margin-top: 40px; display: flex; flex-direction: column;
+        li { display: flex; width: 250px; margin-bottom: 15px;
+          div.info { display: flex; flex-direction: column;  border: 1px solid $dark; background: $dark; border-radius: 10px; cursor: pointer;
+            span { margin: 0px 0px 5px 15px;
+              &:first-child { height: 30px; width: 270px; display: flex; align-items: center; }
+              b { margin-right: 10px; }
+            }
+          }
+
+          div.btns-manager { display: flex; flex-direction: row;
+            span { display: flex; align-items: center; font-family:  'Segoe UI'; width: 35px; cursor: pointer; }
+            button { background-color: #00000000; transition: background-color .4s ease-out; outline: none; border: none;
+              img { height: 18px; }
+            }
+          }
+        }
+      }
+    }
+  }
+      .newProduct-modal {
+    .sweet-modal { width: 400px; }
+
+    .sweet-content { width: 300px;
+      h3 { font-size: 22px; margin-bottom: 25px; }
+
+      section.wrapper { display: flex; flex-direction: column; align-items: flex-end;
+        div { margin-bottom: 15px;
+          label { font-size: 13px; }
+          input { width: 170px; }
+          select { width: 178px; }
+        }
+      }
+    }
+  }
+  button.new-contribuitor { position: fixed; bottom: 20px; left: 30px; background: $dark; border: 1px $dark solid; $hw: 70px; height: $hw; width: $hw; border-radius: 50%;  box-shadow: 0 1px 6px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out;
+    &:hover { background: $secundary; animation: shake .4s infinite linear both; border: 1px $light solid; transition: border .4s ease-in; }
+    img { height: 40%; }
+  }
+}

@@ -1,0 +1,68 @@
+ul.list-products { display: flex; flex-direction: column; align-items: center;
+  div.options-list { margin-bottom: 20px;
+    div.filter {
+      img { height: 15px; }
+      select.line { width: 200px; padding-left: 5px; background-color: $secundary; color: $light; margin: 0 .25rem; min-width: 125px; border: 1px solid $dark; border-radius: 5px; transition: border-color .5s ease-out;
+        &:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }
+      }
+    }
+    
+    div.search { margin-top: 5px;
+      img { height: 15px; }
+      input.search { width: 193px; padding-left: 5px; background-color: $secundary; color: $light; margin: 0 .25rem; min-width: 125px; border: 1px solid $dark; border-radius: 5px; transition: border-color .5s ease-out;
+        &:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }
+      }
+    }
+  }
+  div.list { width: 400px; max-height: 450px; overflow-y: auto; display: flex; flex-direction: column; align-items: center;
+    li { margin-top: 15px; display: flex; background-color: $secundary; width: 350px; height: 50px; box-shadow: #182028 3px; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099;
+      
+      span.critical { width: 4px; background-color: #5a0000;  }
+      span.warning { width: 4px; background-color: #837710; }
+      span.normal { width: 4px; background-color: #085e16; }
+      
+      div.info { display: flex; flex-direction: column; justify-content: space-evenly; margin: 0px 0px 0px 15px;
+        &:hover { cursor: pointer }
+        span.product-name { width: 230px; text-overflow: ellipsis; overflow: hidden; }
+        span.value { display: flex; align-items: center; font-family: 'Segoe UI'; font-size: 15px; }
+      }
+
+      span.estoque { display: flex; justify-content: center; align-items: center; width: 30%; cursor: pointer; }
+
+      div.btns-manager { display: flex; flex-direction: row;
+        span { display: flex; align-items: center; font-family:  'Segoe UI'; width: 35px; cursor: pointer; }
+        button { background-color: #00000000; transition: background-color .4s ease-out; outline: none; border: none;
+          img { height: 18px; }
+        }
+      }
+    }
+
+    div.more-info { display: flex; flex-direction: column; background-color: $secundary; width: 350px; justify-content: space-between; box-shadow: #292929 3px; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099;
+      span { margin: 7px 8px; font-size: 15px;
+        b { margin-right: 8px; font-size: 13px; }
+      }
+    }
+  }
+  
+}
+
+    div.edit { 
+    .sweet-modal { width: 400px; }
+      h3 { font-size: 22px; margin-bottom: 25px; }
+
+      section.wrapper { display: flex; flex-direction: column; align-items: flex-end;
+        div { margin-bottom: 15px;
+          label { font-size: 13px; }
+          input { width: 170px; }
+          select { width: 178px; }
+        }
+      }
+    }
+
+div.sweet-modal { 
+  div.sweet-content-content {
+    div.modal-btns { margin: 30px 0px -30px 0px; display: flex; justify-content: center;
+      button { margin: 0px 20px; } 
+    }
+  }
+}

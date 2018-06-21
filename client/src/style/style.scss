@@ -1,0 +1,57 @@
+$primary: #6BD8D1;
+$secundary: #141d25;
+$back: #182028;
+$dark: #09141f;
+$light: #fff;
+
+svg {
+    g {
+        text {
+            fill: #a3a3a3 !important;  
+        }
+    }
+}
+
+.hidden { display: none }
+
+
+input.valid-input { padding-left: 5px; background-color: $secundary; color: $light; margin: 0 .25rem; min-width: 125px; border: 1px solid $dark; border-left: 3px solid; border-radius: 5px; transition: border-color .5s ease-out;
+    &:required { border-left-color: #03af03; }
+    &:invalid { border-left-color: $primary; }
+    &:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }
+    &::-webkit-input-placeholder { padding: 5px; }
+}
+
+select.valid-select { padding-left: 5px; background-color: $secundary; color: $light; margin: 0 .25rem; min-width: 125px; border: 1px solid $dark; border-left: 3px solid; border-radius: 5px; transition: border-color .5s ease-out;
+    &:required { border-left-color: #03af03; }
+    &:invalid { border-left-color: $primary; }
+    &:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }
+    &::-webkit-input-placeholder { padding: 5px; }
+}
+
+button.confirm { width: 70px; height: 40px; border: 2px solid #026b22d0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
+      &:hover { background: #026b22d0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
+    }
+
+button.cancel { width: 70px; height: 40px; border: 2px solid #6b0202d0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
+      &:hover { background: #6b0202d0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
+    }
+
+button.close { width: 70px; height: 40px; border: 1px solid #dbdbdbd0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
+      &:hover { color: $dark; background: #dbdbdbd0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
+    }
+
+$b1: 1px red solid;
+$b2: 1px green solid;
+$b3: 1px blue solid;
+
+@import './login.scss';
+@import './header.scss';
+@import './home.scss';
+@import './list-products.scss';
+@import './products.scss';
+@import './clients.scss';
+@import './providers.scss';
+@import './contribuitors.scss';
+@import './sales.scss';
+@import './normalize.scss';

@@ -1,0 +1,35 @@
+.header-bar { display: flex; height: 80px; justify-content: space-between; margin-bottom: 60px;
+  section.user-info { display: flex; align-items: center;
+    img.top-logo { height: 60px; margin-left: 40px; }
+
+    div.welcome { display: flex; flex-direction: column; margin-left: 20px;
+      span { margin: 3px 0px; }
+    }
+  }
+
+  strong.page-title { display: flex; align-items: center; font-size: 25px; letter-spacing: 3px;
+    div.return { height: 90px; width: 90px; margin-right: 15px; cursor: pointer; display: flex; justify-content: center; align-items: center;
+      &:hover {
+         animation: return .5s infinite linear both;
+      }
+      img { height: 30px; }
+    }
+  }
+
+  section.page-info { display: flex; align-items: center; margin-right: 40px;
+    button.logout { width: 50px; height: 50px; background-color: $back; border: none; margin-left: 16px; outline: none;
+      &:hover { border-radius: 50%; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: box-shadow .4s ease-out; }
+      img { width: 80%; }
+    }
+  }
+}
+
+@keyframes return {
+  from,
+  to {
+    transform: translate3d(-8px, 0, 0);
+  }
+  50% {
+    transform: translate3d(8px, 0, 0);
+  }
+}

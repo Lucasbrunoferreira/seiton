@@ -1,0 +1,48 @@
+section.products-page { min-height: 100vh; background-color: $back;
+
+  section.products-wrapper { display: flex; flex-wrap: wrap; justify-content: space-evenly;
+    
+    div.content-products { height: 600px; }
+
+    div.info-products { width: 550px; display: flex; flex-direction: column; align-items: center;
+      ul.rank { width: 400px; margin-top: 20px;
+        h4 { color: #cdcdcd; margin: 0px 0px 15px 40px; }
+        li { display: flex; align-items: center; border-bottom: 1px solid #cdcd;
+          img { margin: 10px; height: 22px; }
+          span { color: #cdcdcd; }
+        }
+      }
+    }
+
+    button.new-product { position: fixed; bottom: 80px; left: 50px; background: $dark; border: 1px $dark solid; $hw: 70px; height: $hw; width: $hw; border-radius: 50%;  box-shadow: 0 1px 6px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out;
+      &:hover { background: $secundary; animation: shake .4s infinite linear both; border: 1px $light solid; transition: border .4s ease-in; }
+      img { height: 40%; }
+    }
+
+    .newProduct-modal {
+      .sweet-modal { width: 400px; }
+
+      .sweet-content { width: 300px;
+        h3 { font-size: 22px; margin-bottom: 25px; }
+
+        section.wrapper { display: flex; flex-direction: column; align-items: flex-end;
+          div { margin-bottom: 15px;
+            label { font-size: 13px; }
+            input { width: 170px; }
+            select { width: 178px; }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes shake {
+  from,
+  to {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
