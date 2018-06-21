@@ -30,17 +30,22 @@
   
 > Metodologia - Ferramentas
 
-``` bash
-  * Visual Studio - IDE de desenvolvimento que dá suporte a linguagem C#.
-  * Visual Paradigm for UML - Software utilizado para desenvolver os diagramas UML.
-  * Adobe XD CC - Software para modelagem de protótipos do nosso sistema “Seiton Inventory Control”.
-  * MySQL Workbench - Sistema gerenciador de banco de dados, utilizado para fazer o gerenciamento dos dados do
+
+ > ![Visual_Studio](https://raw.githubusercontent.com/Lucasbrunoferreira/Seiton/master/client/static/assets/images/visual_studio.png)    Visual Studio - IDE de desenvolvimento que dá suporte a linguagem C#.
+ 
+ >![Visual_Paradigm](https://raw.githubusercontent.com/Lucasbrunoferreira/Seiton/master/client/static/assets/images/Visual_Paradigm.png)  Visual Paradigm for UML - Software utilizado para desenvolver os diagramas UML.
+ 
+ >![Adobe_XD](https://raw.githubusercontent.com/Lucasbrunoferreira/Seiton/master/client/static/assets/images/Adobe_XD.png) Adobe XD CC - Software para modelagem de protótipos do nosso sistema “Seiton Inventory Control”.
+ 
+ > ![MySQL](https://raw.githubusercontent.com/Lucasbrunoferreira/Seiton/master/client/static/assets/images/MySQL.png)  MySQL Workbench - Sistema gerenciador de banco de dados, utilizado para fazer o gerenciamento dos dados do
     sistema “Seiton Inventory Control”.
-  * Vue.JS - Framework javascript progressivo para a construção de interfaces de usuário.
-  * É uma iniciativa da empresa Microsoft, que visa uma plataforma única para desenvolvimento e execução de 
+  
+  > ![Vue.JS](https://raw.githubusercontent.com/Lucasbrunoferreira/Seiton/master/client/static/assets/images/Vue.png) Vue.JS - Framework javascript progressivo para a construção de interfaces de usuário.
+  
+  > ![.NET](https://raw.githubusercontent.com/Lucasbrunoferreira/Seiton/master/client/static/assets/images/.net.png) É uma iniciativa da empresa Microsoft, que visa uma plataforma única para desenvolvimento e execução de 
     sistemas e aplicações(.Net Framework).
 
-  ```
+
 
 
 
