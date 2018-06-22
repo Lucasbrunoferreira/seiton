@@ -20,7 +20,7 @@
              <option v-for="(user, index) in getterAllUsers" :key="index" :value="`${user.idContribuitor}`"> {{ user.nome }} </option>
            </select>
            <span v-tooltip.bottom-start="'Você pode realizar vendas apenas para você mesmo!'" v-else>
-           <select disabled class="valid-select" v-model="selectedContribuitor">
+           <select class="valid-select" v-model="selectedContribuitor">
               <option :value="`${ getterAccount.idContribuitor }`" >{{ getterAccount.nome }}</option>
            </select>
            </span>
@@ -59,7 +59,7 @@
       </div>
 
       <div class="manager-sale no-print">
-        <div class="total no-print">
+        <div class="total no-print" v-if="getterSale">
           <span>Total de Produtos</span>
           <b class="qtd no-print">{{ getterSale.length }}</b>
         </div>
