@@ -17,7 +17,10 @@
             <img src="/static/assets/icons/password.svg">
             <input v-model="senha" required type="password" placeholder="senha" class="valid-input">
           </div>
-          <button @click="login()" type="submit">login</button>
+          <button @click="login()" type="submit" :class="{ 'disabled': isLoading }">
+            <img v-if="isLoading" src="/static/assets/icons/load.svg">
+            <span v-else>login</span>
+          </button>
         </form>
       </div>
 

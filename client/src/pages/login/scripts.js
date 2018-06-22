@@ -4,7 +4,8 @@ export default {
   data () {
     return {
       usuario: null,
-      senha: null
+      senha: null,
+      isLoading: false
     }
   },
   computed: {
@@ -20,6 +21,7 @@ export default {
     ]),
     login () {
       if (this.usuario && this.senha) {
+        this.isLoading = true
         this.actionLogin({usuario: this.usuario, senha: this.senha})
           .then((response) => {
             this.$toasted.success('Autenticado com sucesso!', {
@@ -32,8 +34,9 @@ export default {
             this.actionGetAllSectors()
             setTimeout(() => {
               this.$router.push('/home')
-            }, 3000)
+            }, 1800)
           }).catch((e) => {
+            this.isLoading = false
             this.$toasted.error('Erro ao autenticar!', {
               icon: 'error',
               theme: 'bubble',

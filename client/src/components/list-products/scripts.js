@@ -61,11 +61,8 @@ export default {
       this.prductLine = parseInt(line.substring(0, 1))
     }
   },
-  mounted: function () {
-    this.getterAllProducts.forEach(product => {
-      this.validadeFormatada = moment(product.dataValidade).format('L')
-      product.dataValidade = this.validadeFormatada
-    })
+  mounted () {
+    this.parseDate()
   },
   methods: {
     ...mapMutations([
@@ -78,6 +75,13 @@ export default {
       'actionEditProduct',
       'actionGetAllProducts'
     ]),
+
+    parseDate () {
+      this.getterAllProducts.forEach(product => {
+        this.validadeFormatada = moment(product.dataValidade).format('L')
+        product.dataValidade = this.validadeFormatada
+      })
+    },
 
     showInfo (item) {
       if (!this.moreInfo) {
@@ -95,6 +99,7 @@ export default {
     confirmDelete () {
       this.actionDeleteProduct(this.selectedProduct)
         .then((result) => {
+          this.parseDate()
           this.$refs.delete.close()
           this.$refs.deletedSuccess.open()
           setTimeout(() => {
@@ -161,9 +166,10 @@ export default {
       }
       this.actionEditProduct(newProduct).then(() => {
         this.$refs.editProduct.close()
-        this.clear()
+        this.parseDate()
         this.$refs.editedSuccess.open()
         this.actionGetAllProducts().then((result) => {
+          this.clear()
           setTimeout(() => {
             this.$refs.editedSuccess.close()
           }, 2500)
