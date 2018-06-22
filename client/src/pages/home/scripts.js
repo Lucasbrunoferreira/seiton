@@ -25,6 +25,7 @@ export default {
     this.actionGetAllLines()
     this.actionGetAllProviders()
     this.actionGetAllUsers()
+    this.actionGetAllClients()
   },
   methods: {
     ...mapActions([
@@ -32,7 +33,8 @@ export default {
       'actionGetAllProducts',
       'actionGetAllLines',
       'actionGetAllProviders',
-      'actionGetAllUsers'
+      'actionGetAllUsers',
+      'actionGetAllClients'
     ]),
     toPage (route) {
       this.$router.push(route)

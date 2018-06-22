@@ -6,6 +6,7 @@ const SECTOR = `${HOST}/api/Sectors`
 const PRODUCTS = `${HOST}/api/Products`
 const LINES = `${HOST}/api/Lines`
 const PROVIDERS = `${HOST}/api/Providers`
+const CLIENT = `${HOST}/api/Clients`
 
 export default {
   LOGIN,
@@ -13,5 +14,6 @@ export default {
   PRODUCTS,
   LINES,
   PROVIDERS,
-  USERS
+  USERS,
+  CLIENT
 }

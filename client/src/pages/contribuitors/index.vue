@@ -26,7 +26,7 @@
               <button @click="editContribuitor(admin)">
                 <img src="/static/assets/icons/edit.svg">
               </button>
-          </div>
+            </div>
           </li>
         </ul>
 
