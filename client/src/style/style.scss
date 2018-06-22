@@ -29,17 +29,21 @@ select.valid-select { padding-left: 5px; background-color: $secundary; color: $l
     &::-webkit-input-placeholder { padding: 5px; }
 }
 
-button.confirm { width: 70px; height: 40px; border: 2px solid #026b22d0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
+button.confirm { width: 75px; height: 40px; border: 2px solid #026b22d0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
       &:hover { background: #026b22d0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
     }
 
-button.cancel { width: 70px; height: 40px; border: 2px solid #6b0202d0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
+button.cancel { width: 75px; height: 40px; border: 2px solid #6b0202d0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
       &:hover { background: #6b0202d0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
     }
 
 button.close { width: 70px; height: 40px; border: 1px solid #dbdbdbd0; background: $back; margin-left: 16px; outline: none; border-radius: 10px;
       &:hover { color: $dark; background: #dbdbdbd0; box-shadow: 0 1px 3px #0000001f, 0 1px 2px #00000099; transition: background-color .4s ease-out; }
     }
+
+@media print {
+    .no-print { display: none }
+}
 
 $b1: 1px red solid;
 $b2: 1px green solid;

@@ -85,7 +85,7 @@
           </div>
 
           <div>
-            <label for="cpf">CPF/CNPJ</label>
+            <label for="cpf">CPF</label>
             <input required class="valid-input" v-model="cpf" type="cpf" id="cod">
           </div>
 

@@ -8,6 +8,7 @@ import product from './modules/product'
 import lines from './modules/lines'
 import providers from './modules/providers'
 import contribuitors from './modules/contribuitors'
+import sales from './modules/sales'
 
 Vue.use(Vuex)
 
@@ -19,7 +20,8 @@ export default new Vuex.Store({
     product,
     lines,
     providers,
-    contribuitors
+    contribuitors,
+    sales
   },
   plugins: [createPersistedState()]
 })

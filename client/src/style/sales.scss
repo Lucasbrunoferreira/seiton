@@ -1,7 +1,7 @@
 div.sales-page { min-height: 100vh; background-color: $back;
   section.wrapper { display: flex; flex-wrap: wrap; justify-content: space-around;
 
-    div.sale-content { width: 1400px; display: flex; justify-content: center; flex-direction: column; align-items: center; margin-bottom: 50px;
+    div.sale-content { width: 900px; display: flex; justify-content: center; flex-direction: column; align-items: center; margin-bottom: 50px;
       div.header { display: flex;
         div { margin-right: 50px;
           input { width: 200px; padding-left: 5px; background-color: $secundary; color: $light; border: 1px solid $dark; border-radius: 5px; transition: border-color .5s ease-out;
@@ -12,10 +12,7 @@ div.sales-page { min-height: 100vh; background-color: $back;
       }
 
       div.add {
-        input.search { width: 400px; height: 28px; margin: 40px 0px; padding-left: 5px; background-color: $secundary; color: $light; border: 1px solid $dark; border-radius: 5px; transition: border-color .5s ease-out;
-          &:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }
-          &::-webkit-input-placeholder { padding: 5px; }
-        }
+    
         input.qtd {width: 40px; height: 28px; margin: 40px 0px; padding-left: 5px; background-color: $secundary; color: $light; border: 1px solid $dark; border-radius: 5px; transition: border-color .5s ease-out;
           &:focus { box-shadow: 0 0 0 0; border: 0 none; outline: 0; }
           &::-webkit-input-placeholder { padding: 5px; }
@@ -24,6 +21,12 @@ div.sales-page { min-height: 100vh; background-color: $back;
           &:hover { transition: background-color .5s ease-out; background-color: $dark }
           img { height: 50%; }
         }
+        div.ui.search { background: $dark; height: 50px !important;
+          &input { background: green !important;  }
+        }
+        div.menu.visible { background: $dark; color: #fff; }
+        div.item { color: #fff !important; }
+       
       }
 
       div.legend {width: 500px; display: flex; margin: 50px 60px 15px 0px;
@@ -38,7 +41,15 @@ div.sales-page { min-height: 100vh; background-color: $back;
       }
     }
 
-    div.manager-sale { width: 40px; display: flex; align-items: center; flex-direction: column;
+    div.manager-sale { width: 300px; display: flex; align-items: center; flex-direction: column;
+      div.total { border: 1px solid $dark; width: 250px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+        span { display: flex; justify-content: center; align-items: center; margin-bottom: 30px; font-size: 20px;}
+        b.qtd { display: flex; justify-content: center; align-items: center; margin: 3px; font-size: 50px; }
+      }
+
+      div.manager-saler { margin-top: 100px;
+        button { margin: 20px; }
+      }
 
     }
   }
