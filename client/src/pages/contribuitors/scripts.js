@@ -135,7 +135,6 @@ export default {
           this.clear()
           this.$refs.createdSuccess.open()
           this.actionGetAllUsers().then(() => {
-            this.mounted()
             setTimeout(() => {
               this.$refs.createdSuccess.close()
             }, 2500)

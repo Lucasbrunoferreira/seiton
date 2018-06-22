@@ -68,7 +68,7 @@ namespace BLL
             var contribuitorDao = new ContribuitorDao();
             var contribuitor = contribuitorDao.obeterPorId(id);
 
-            var contribuitorAt = PreparaContribuitor(contribuitorModelView, contribuitor);
+            var contribuitorAt = AtualizarContribuitor(contribuitorModelView, contribuitor);
 
             contribuitorAt.IdContribuitor = id;
             contribuitorDao.Atualizar(contribuitorAt);
@@ -93,6 +93,62 @@ namespace BLL
             {
                 throw new Exception("Contribuidor já cadastrado");
             }
+
+            var cpf = new ValidarCPF();
+
+
+            if (contribuitorModelView.Nome.Trim().Length == 0)
+            {
+                throw new Exception("Informe o NOME.");
+            }
+            else if (contribuitorModelView.Usuario.Trim().Length == 0)
+            {
+                throw new Exception("Informe o USUÁRIO.");
+            }
+            else if (contribuitorModelView.Senha.Trim().Length == 0)
+            {
+                throw new Exception("Informe a SENHA.");
+            }
+            else if (contribuitorModelView.DataNascimento == null)
+            {
+                throw new Exception("Informe a DATA DE NASCIMENTO.");
+            }
+            else if (contribuitorModelView.Cpf.Trim().Length == 0)
+            {
+                throw new Exception("Informe o CPF.");
+            }
+            else if (contribuitorModelView.IdSector == 0)
+            {
+                throw new Exception("Iforme o SETOR.");
+            }
+            else if (contribuitorModelView.DataCadastro == null)
+            {
+                throw new Exception("Iforme a DATA DE CADASTRO.");
+            }
+            else if (cpf.IsCpf(contribuitorModelView.Cpf) == false)
+            {
+                throw new Exception("CPF INVÁLIDO.");
+            }
+            else
+            {
+                contribuitor1.Nome = contribuitorModelView.Nome;
+                contribuitor1.Usuario = contribuitorModelView.Usuario;
+                contribuitor1.Senha = HashService.HashPassword(contribuitorModelView.Senha);
+                contribuitor1.Cpf = contribuitorModelView.Cpf;
+                contribuitor1.DataNascimento = contribuitorModelView.DataNascimento;
+                contribuitor1.DataCadastro = contribuitorModelView.DataCadastro;
+                contribuitor1.IdSector = contribuitorModelView.IdSector;
+            }
+
+            return contribuitor1;
+
+        }
+
+        public Contribuitor AtualizarContribuitor(ContribuitorModelView contribuitorModelView, Contribuitor contribuitor)
+        {
+
+            var contribuitor1 = new Contribuitor();
+            ContribuitorDao contribuitorDao = new ContribuitorDao();
 
             var cpf = new ValidarCPF();
 

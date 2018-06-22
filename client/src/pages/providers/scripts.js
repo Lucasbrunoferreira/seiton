@@ -60,7 +60,7 @@ export default {
       this.email = ''
     },
     createProvider () {
-      let newProvider = {
+      let newProvider = { 
         nome: this.nome,
         cnpj: this.cnpj,
         cidade: this.cidade,

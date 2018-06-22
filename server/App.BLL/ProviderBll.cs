@@ -45,7 +45,7 @@ namespace App.BLL
             var providerDao = new ProviderDao();
             var provider = providerDao.ObeterPorId(id);
 
-            var providerAt = PreparaProvider(providerModelView, provider);
+            var providerAt = AtualizarProvider(providerModelView, provider);
 
             providerAt.IdProvider = id;
             providerDao.Atualizar(providerAt);
@@ -99,6 +99,56 @@ namespace App.BLL
                 throw new Exception("Informe o EMAIL.");
             }
             else if(cnpj.IsCnpj(providerModelView.Cnpj) == false)
+            {
+                throw new Exception("CNPJ INVÁLIDO.");
+            }
+            else
+            {
+                provider1.Cnpj = providerModelView.Cnpj;
+                provider1.Nome = providerModelView.Nome;
+                provider1.Cidade = providerModelView.Cidade;
+                provider1.Responsavel = providerModelView.Responsavel;
+                provider1.Telefone = providerModelView.Telefone;
+                provider1.Email = providerModelView.Email;
+            }
+
+            return provider1;
+
+        }
+
+        public Provider AtualizarProvider(ProviderModelView providerModelView, Provider provider)
+        {
+
+            var provider1 = new Provider();
+            ProviderDao providerDao = new ProviderDao();
+
+            var cnpj = new ValidarCNPJ();
+
+            if (providerModelView.Cnpj.Trim().Length == 0)
+            {
+                throw new Exception("Informe o CNPJ.");
+            }
+            else if (providerModelView.Nome.Trim().Length == 0)
+            {
+                throw new Exception("Informe o NOME.");
+            }
+            else if (providerModelView.Cidade.Trim().Length == 0)
+            {
+                throw new Exception("Informe a CIDADE.");
+            }
+            else if (providerModelView.Responsavel.Trim().Length == 0)
+            {
+                throw new Exception("Informe o RESPONSAVEL.");
+            }
+            else if (providerModelView.Telefone.Trim().Length == 0)
+            {
+                throw new Exception("Informe o TELEFONE.");
+            }
+            else if (providerModelView.Email.Trim().Length == 0)
+            {
+                throw new Exception("Informe o EMAIL.");
+            }
+            else if (cnpj.IsCnpj(providerModelView.Cnpj) == false)
             {
                 throw new Exception("CNPJ INVÁLIDO.");
             }

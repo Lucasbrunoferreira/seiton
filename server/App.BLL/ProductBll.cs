@@ -74,7 +74,7 @@ namespace App.BLL
             var productDao = new ProductDao();
             var product = productDao.ObeterPorId(id);
 
-            var productAt = PreparaProduct(productModelView, product);
+            var productAt = AtualizarProduct(productModelView, product);
 
             productAt.IdProduct = id;
             productDao.Atualizar(productAt);
@@ -140,6 +140,83 @@ namespace App.BLL
             else if (productModelView.Icms <= 0)
             {
                 throw new Exception("Informeo o ICMS do produto."); 
+            }
+            else if (productModelView.IdLine <= 0)
+            {
+                throw new Exception("Informe a LINHA do produto.");
+            }
+            else if (productModelView.IdProvider <= 0)
+            {
+                throw new Exception("Informe o FORNECEDOR do produto.");
+            }
+            else
+            {
+                product1.StatusProduct = productModelView.StatusProduct;
+                product1.CodigoBarra = productModelView.CodigoBarra;
+                product1.Nome = productModelView.Nome;
+                product1.Estoque = productModelView.Estoque;
+                product1.Lote = productModelView.Lote;
+                product1.DataValidade = productModelView.DataValidade;
+                product1.DataCadastro = productModelView.DataCadastro;
+                product1.DataEntrada = productModelView.DataEntrada;
+                product1.PrecoCompra = productModelView.PrecoCompra;
+                product1.PrecoVenda = productModelView.PrecoVenda;
+                product1.Desconto = productModelView.Desconto;
+                product1.Icms = productModelView.Icms;
+                product1.IdLine = productModelView.IdLine;
+                product1.IdProvider = productModelView.IdProvider;
+            }
+
+            return product1;
+
+        }
+
+
+        public Product AtualizarProduct(ProductModelView productModelView, Product product)
+        {
+
+            var product1 = new Product();
+            ProductDao productDao = new ProductDao();
+
+            if (productModelView.CodigoBarra.Trim().Length == 0)
+            {
+                throw new Exception("Informe um CÓDIGO de barra do produto.");
+            }
+            else if (productModelView.Nome.Trim().Length == 0)
+            {
+                throw new Exception("Informe o NOME do produto.");
+            }
+            else if (productModelView.Estoque <= 0)
+            {
+                throw new Exception("Informe a QUANTIDADE do produto.");
+            }
+            else if (productModelView.Lote.Trim().Length == 0)
+            {
+                throw new Exception("Informe o LOTE do produto.");
+            }
+            else if (productModelView.DataValidade == null)
+            {
+                throw new Exception("Informe a DATA DE VALIDADE do produto.");
+            }
+            else if (productModelView.DataCadastro == null)
+            {
+                throw new Exception("Informe a DATA DE CADASTRO do produto.");
+            }
+            else if (productModelView.DataEntrada == null)
+            {
+                throw new Exception("Informe a DATA DE ENTRADA do produto.");
+            }
+            else if (productModelView.PrecoCompra <= 0)
+            {
+                throw new Exception("Informe o PREÇO DE COMPRA do produto.");
+            }
+            else if (productModelView.PrecoVenda <= 0)
+            {
+                throw new Exception("Informe o PREÇO DE VENDA do produto.");
+            }
+            else if (productModelView.Icms <= 0)
+            {
+                throw new Exception("Informeo o ICMS do produto.");
             }
             else if (productModelView.IdLine <= 0)
             {
