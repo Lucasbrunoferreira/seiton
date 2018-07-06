@@ -48,12 +48,12 @@
 
 ### Portfolio
 
-* [Login](https://i.imgur.com/vf2T7q9.jpg)
-* [Início](https://i.imgur.com/VRuIHQ9.jpg)
-* [Produtos](https://i.imgur.com/UJz5WFI.jpg)
-* [Cliente](https://i.imgur.com/JoTitYF.jpg)
-* [Fornecedores](https://i.imgur.com/i3Trx48.jpg)
-* [Vendas](https://i.imgur.com/U1SkQm2.jpg)
+* [Login](https://imgur.com/vf2T7q9)
+* [Início](https://imgur.com/VRuIHQ9)
+* [Produtos](https://imgur.com/UJz5WFI)
+* [Cliente](https://imgur.com/JoTitYF)
+* [Fornecedores](https://imgur.com/i3Trx48)
+* [Vendas](https://imgur.com/U1SkQm2)
 
 ### Desenvolvedores
 
